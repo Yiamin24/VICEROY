@@ -1,69 +1,17 @@
 import { MemberProvider } from '@/integrations';
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
-import { ScrollToTop } from '@/lib/scroll-to-top';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
-import HomePage from '@/components/pages/HomePage';
-import AboutPage from '@/components/pages/AboutPage';
-import VillasPage from '@/components/pages/VillasPage';
-import AmenitiesPage from '@/components/pages/AmenitiesPage';
-import ContactPage from '@/components/pages/ContactPage';
-
-// Layout component that includes ScrollToTop
-function Layout() {
-  return (
-    <>
-      <ScrollToTop />
-      <Outlet />
-    </>
-  );
-}
+import LandingPage from '@/components/pages/LandingPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <LandingPage />,
     errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-        routeMetadata: {
-          pageIdentifier: 'home',
-        },
-      },
-      {
-        path: "about",
-        element: <AboutPage />,
-        routeMetadata: {
-          pageIdentifier: 'about',
-        },
-      },
-      {
-        path: "villas",
-        element: <VillasPage />,
-        routeMetadata: {
-          pageIdentifier: 'villas',
-        },
-      },
-      {
-        path: "amenities",
-        element: <AmenitiesPage />,
-        routeMetadata: {
-          pageIdentifier: 'amenities',
-        },
-      },
-      {
-        path: "contact",
-        element: <ContactPage />,
-        routeMetadata: {
-          pageIdentifier: 'contact',
-        },
-      },
-      {
-        path: "*",
-        element: <Navigate to="/" replace />,
-      },
-    ],
+  },
+  {
+    path: "*",
+    element: <LandingPage />,
   },
 ], {
   basename: import.meta.env.BASE_NAME,

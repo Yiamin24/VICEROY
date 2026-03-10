@@ -19,15 +19,16 @@ export default {
                 '9xl': ['6rem', { lineHeight: '1', letterSpacing: '-0.01em', fontWeight: 'bold' }],
             },
             fontFamily: {
-                heading: "Roboto",
-                paragraph: "Roboto"
+                heading: ['Playfair Display', 'serif'],
+                paragraph: ['Inter', 'sans-serif']
             },
             colors: {
-                primary: '#181A43',
-                accent: '#F00000',
-                background: '#EEE7E1',
-                foreground: '#000000',
-                link: '#F00000'
+                primary: '#13133F',
+                accent: '#1E1C4B',
+                background: '#E9E3DC',
+                lightBackground: '#F3EDEA',
+                foreground: '#13133F',
+                link: '#1E1C4B'
             },
         },
     },
