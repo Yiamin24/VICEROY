@@ -29,7 +29,16 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
       />
       
       {/* Form Container */}
-      <div className="relative bg-[#E9E3DC] rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-md max-h-[95vh] overflow-y-auto animate-in zoom-in-95 duration-200">
+      <div className="relative bg-[#E9E3DC] rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-md max-h-[95vh] overflow-y-auto animate-in zoom-in-95 duration-200 scrollbar-hide">
+        <style jsx>{`
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
         {/* Close Button */}
         <button
           onClick={onClose}
