@@ -51,7 +51,7 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
   const duplicatedAmenities = [...amenityData, ...amenityData];
 
   return (
-    <section id="amenities" className="py-20 md:py-32 bg-[#181a43] relative overflow-hidden">
+    <section id="amenities" className="py-20 md:py-24 lg:py-28 bg-[#181a43] relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#181a43] via-[#181a43]/95 to-[#181a43] z-0" />
       

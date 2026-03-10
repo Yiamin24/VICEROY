@@ -36,7 +36,7 @@ export default function StorySection() {
   };
 
   return (
-    <section id="story" className="py-24 md:py-32 bg-[#E9E3DC]">
+    <section id="story" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC]">
       <div className="container mx-auto px-4 max-w-6xl">
         <FadeIn>
           <div className="flex flex-col items-center text-center space-y-12">

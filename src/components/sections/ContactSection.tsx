@@ -33,7 +33,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-background">
+    <section id="contact" className="py-20 md:py-24 lg:py-28 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <FadeIn>

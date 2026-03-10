@@ -30,7 +30,7 @@ export default function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-lightBackground">
+    <section id="gallery" className="py-20 md:py-24 lg:py-28 bg-lightBackground">
       <div className="container mx-auto px-4">
         <FadeIn>
           <div className="text-center mb-16">

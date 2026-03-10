@@ -71,7 +71,7 @@ interface VillasSectionProps {
 
 export default function VillasSection({ villas, isLoading }: VillasSectionProps) {
   return (
-    <section id="villas" className="py-24 md:py-32 bg-[#E9E3DC]">
+    <section id="villas" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC]">
       <div className="container mx-auto px-4">
         
         {/* Slow Down & Reconnect Section */}
