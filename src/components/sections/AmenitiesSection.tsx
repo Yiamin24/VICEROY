@@ -95,18 +95,6 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
               .infinite-scroll {
                 animation: scroll-right 40s linear infinite;
               }
-              .scroll-container {
-                mask: linear-gradient(90deg,
-                  transparent 0%,
-                  black 10%,
-                  black 90%,
-                  transparent 100%);
-                -webkit-mask: linear-gradient(90deg,
-                  transparent 0%,
-                  black 10%,
-                  black 90%,
-                  transparent 100%);
-              }
               .amenity-card {
                 transition: transform 0.3s ease;
               }
@@ -119,7 +107,7 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
             `}</style>
             
             <div className="relative z-10 w-full flex items-center justify-center py-8">
-              <div className="scroll-container w-full">
+              <div className="w-full">
                 <div className="infinite-scroll flex gap-4 md:gap-6 w-max">
                   {duplicatedAmenities.map((amenity, index) => (
                     <div
