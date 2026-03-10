@@ -27,7 +27,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   return (
-    <section id="hero" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden pt-20">
       <motion.div 
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
