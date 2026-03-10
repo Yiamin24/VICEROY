@@ -86,14 +86,39 @@ export default function ContactSection() {
                       fontWeight: 300
                     }}
                   >
-                    Visit Us
+                    Head Office
                   </h3>
                   <p 
-                    className="text-[#13133F]/70 text-base"
+                    className="text-[#13133F]/70 text-base leading-relaxed"
                     style={{ fontFamily: "'Manrope', sans-serif" }}
                   >
-                    Dhar, Himachal Pradesh<br />
-                    India
+                    B27 & 28, DDA Sheds,<br />
+                    Okhla Industrial Area Phase 2,<br />
+                    New Delhi – 110020
+                  </p>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.15}>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#13133F]/5 group">
+                  <div className="w-14 h-14 rounded-full bg-[#13133F]/10 flex items-center justify-center mb-4 group-hover:bg-[#13133F]/20 transition-colors">
+                    <MapPin className="h-6 w-6 text-[#13133F]" />
+                  </div>
+                  <h3 
+                    className="text-2xl text-[#13133F] mb-2"
+                    style={{
+                      fontFamily: '"Cormorant Garamond", serif',
+                      fontWeight: 300
+                    }}
+                  >
+                    Site Office
+                  </h3>
+                  <p 
+                    className="text-[#13133F]/70 text-base leading-relaxed"
+                    style={{ fontFamily: "'Manrope', sans-serif" }}
+                  >
+                    Main Road, Dharon ki Dhar,<br />
+                    Solan, Himachal Pradesh – 173223
                   </p>
                 </div>
               </FadeIn>
@@ -122,7 +147,7 @@ export default function ContactSection() {
                 </div>
               </FadeIn>
 
-              <FadeIn delay={0.3}>
+              <FadeIn delay={0.25}>
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#13133F]/5 group">
                   <div className="w-14 h-14 rounded-full bg-[#13133F]/10 flex items-center justify-center mb-4 group-hover:bg-[#13133F]/20 transition-colors">
                     <Phone className="h-6 w-6 text-[#13133F]" />
@@ -136,12 +161,13 @@ export default function ContactSection() {
                   >
                     Call Us
                   </h3>
-                  <p 
-                    className="text-[#13133F]/70 text-base"
+                  <a 
+                    href="tel:+919999080605"
+                    className="text-[#13133F]/70 hover:text-[#13133F] transition-colors text-base"
                     style={{ fontFamily: "'Manrope', sans-serif" }}
                   >
-                    +91 XXXX XXXXXX
-                  </p>
+                    +91 9999080605
+                  </a>
                 </div>
               </FadeIn>
             </div>
