@@ -1,0 +1,224 @@
+{
+  "id": "08da4896-fab7-4f93-a9d7-4bfe5b5e721b",
+  "initialPrompt": "Create a website inspired by https://theviceroyestate.com/",
+  "siteName": "theviceroyestate.com",
+  "brandBook": {
+    "tones": [
+      "Elegant",
+      "Luxurious",
+      "Calm",
+      "Professional",
+      "Exclusive"
+    ],
+    "designStyle": {
+      "primaryStyle": [
+        "Elegant"
+      ],
+      "supportingStyles": [
+        "Minimalist",
+        "Luxury",
+        "Serene"
+      ]
+    },
+    "toneOfVoice": "Sophisticated, tranquil, exclusive, refined, trustworthy.",
+    "graphicElements": {
+      "icons": "Minimalist, line-based icons that complement the elegant aesthetic. Use primary or foreground colors.",
+      "stickers": "",
+      "illustrations": "Abstract or nature-inspired illustrations with a soft, muted color palette. Avoid overly complex or cartoonish styles."
+    },
+    "designSummary": "**The Viceroy Estate: Serene Luxury in the Himalayas**\n\nThe design for The Viceroy Estate will embody a sophisticated and tranquil luxury, mirroring the serene beauty of its Shivalik Hills location. The aesthetic will be one of quiet confidence, emphasizing spaciousness, natural elegance, and a premium feel. This is achieved through a balanced composition, a refined color palette, and carefully selected typography that speaks of heritage and modern comfort.\n\n**Execution Blueprint:**\n1. **Layout Philosophy:** Embrace a Serene Minimalism approach, prioritizing generous negative space and balanced, symmetrical layouts to evoke calm and order.\n2. **Typographic Harmony:** Combine a classic, elegant serif for headlines with a clean, legible sans-serif for body text, creating a sophisticated contrast that guides the user's eye.\n3. **Color Palette:** Utilize a muted, desaturated palette inspired by nature and luxury – soft off-whites, deep charcoals, and subtle earthy tones, accented by a refined metallic hue.\n4. **Component Refinement:** Buttons and interactive elements will be understated, focusing on clarity and subtle hover states rather than overt styling, reinforcing the sense of quiet luxury.\n5. **Visual Storytelling:** Employ high-quality imagery of the villas and landscape, presented with ample breathing room, to convey the exclusivity and natural beauty of the estate.",
+    "layout": {
+      "grid": {
+        "margins": "Generous, creating distinct sections and visual breathing room.",
+        "padding": "Consistent padding within content blocks, typically 40px-80px, to frame content.",
+        "compositionApproach": "Symmetrical Grid with Generous Whitespace",
+        "spacing": {
+          "gaps": "Base unit: 8px. Grid gaps are multiples of 24px (3x base unit) for consistent spacing.",
+          "rows": "Flexible, based on content and visual balance",
+          "columns": "12-column grid",
+          "compositionApproach": "Not specified"
+        }
+      },
+      "layoutDna": {
+        "contrastSpectrum": "Medium - Achieved through color palette and typography, not harsh contrasts.",
+        "densitySpectrum": "Low - Emphasizes spaciousness and breathing room.",
+        "textVsImageEmphasis": "Balanced - High-quality imagery supports and is supported by elegant typography.",
+        "complexitySpectrum": "Low - Focus on clarity, simplicity, and refined elements.",
+        "gridAlignmentSpectrum": "Balanced and Symmetrical - Prioritizes order and visual harmony.",
+        "negativeSpaceUsage": "Generous - Essential for conveying luxury and tranquility."
+      },
+      "heroSectionLayout": "**The Grand Entrance**\nComposition (Tailwind Spec): Main container (h-screen grid place-items-center p-8). A large, high-quality background image of the estate or landscape. Headline 'The Viceroy Estate' in 'gallient' (text-7xl font-bold text-white text-center). Sub-headline 'Luxury Residences in the Shivalik Hills' in 'DM Sans' (text-xl font-medium text-white text-center mt-4).\nSignature Hook (Framer Motion Spec): Parent `motion.div` with `initial={{ opacity: 0 }}` and `animate={{ opacity: 1 }}` with `transition={{ duration: 1.5 }}`. Headline and sub-headline use `staggerChildren` with `transition={{ staggerChildren: 0.1 }}` and `initial={{ opacity: 0, y: 20 }}` `animate={{ opacity: 1, y: 0 }}` for a subtle fade-in and slide-up effect."
+    },
+    "components": {
+      "images": "Layout Role: Full-bleed or contained within balanced grid cells. | Gallery Type: Clean grid layouts or single-item focus with ample padding. Avoid overlapping or chaotic arrangements. Images are presented with high fidelity and minimal borders.",
+      "buttons": "Primary: background-color: #181A43, color: #FFFFFF, border-radius: 4px, padding: 12px 24px, font-weight: 500. Secondary: background-color: transparent, color: #181A43, border: 1px solid #181A43, border-radius: 4px, padding: 12px 24px, font-weight: 500. Accent Button: background-color: #F00000, color: #FFFFFF, border-radius: 4px, padding: 12px 24px, font-weight: 500. Hover states are subtle, e.g., slight darkening or underline.",
+      "containers": "Method: Whitespace, Style: Generous vertical margins (e.g., 80px-120px) between sections. Optional subtle background color (#EEE7E1) for specific content blocks."
+    },
+    "palette": {
+      "colors": {
+        "customColors": [
+          {
+            "name": "accent",
+            "value": "#F00000"
+          },
+          {
+            "name": "destructive",
+            "value": "#ff0000"
+          },
+          {
+            "name": "destructiveForeground",
+            "value": "#FFFFFF"
+          },
+          {
+            "name": "textPrimary",
+            "value": "#000000"
+          },
+          {
+            "name": "link",
+            "value": "#F00000"
+          }
+        ],
+        "background": "#FFFFFF",
+        "secondary": "#EEE7E1",
+        "foreground": "#181A43",
+        "secondaryForeground": "#181A43",
+        "primaryForeground": "#FFFFFF",
+        "primary": "#181A43"
+      },
+      "paletteUsageGuide": "The primary color (#181A43) is for key headings, navigation elements, and calls to action. The secondary color (#EEE7E1) serves as a background for content blocks or accents, providing a soft contrast. The background is a clean white (#FFFFFF) for overall page structure, with foreground text in a deep charcoal (#181A43) for readability. The accent color (#F00000) is used sparingly for critical interactive elements like links or specific call-to-action buttons to draw attention without overwhelming the serene aesthetic. Ensure high contrast for accessibility.",
+      "paletteAccessibilityNotes": "The primary color (#181A43) has sufficient contrast against the white background (#FFFFFF) and the secondary color (#EEE7E1) for foreground text. The accent color (#F00000) should be used judiciously and not for essential information conveyance where color blindness might be a factor. Text on accent color should be checked for contrast ratios."
+    },
+    "typography": {
+      "headings": {
+        "font": {
+          "fontFamily": "gallient",
+          "role": "Headings",
+          "fontJustification": ""
+        },
+        "headingsAccessibilityNotes": "Ensure sufficient contrast between heading colors and their backgrounds. Avoid overly decorative or condensed styles for critical headings.",
+        "headingsSimilarFonts": [],
+        "headingsUsageGuide": "Use 'gallient' for all major headings (H1, H2, H3) to establish a strong, elegant presence. Ensure ample line height and letter spacing for readability and a luxurious feel."
+      },
+      "paragraphs": {
+        "font": {
+          "fontFamily": "DM Sans",
+          "role": "Body Text",
+          "fontJustification": ""
+        },
+        "paragraphsUsageGuide": "Use 'DM Sans' for all body text, captions, and secondary information. Its clean and modern feel ensures excellent readability. Maintain a consistent font size and line height for a comfortable reading experience.",
+        "paragraphsSimilarFonts": [
+          "euclid_Circular_B",
+          "sans-serif"
+        ],
+        "paragraphsAccessibilityNotes": "Maintain a minimum font size of 16px for body text. Ensure adequate line height (1.5x) and letter spacing for legibility. Text color must have a WCAG AA contrast ratio against the background."
+      },
+      "customFontFamilies": {},
+      "fontSizes": [
+        {
+          "name": "xs",
+          "size": "0.75rem",
+          "lineHeight": "1.2",
+          "letterSpacing": "0.02em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "sm",
+          "size": "0.875rem",
+          "lineHeight": "1.3",
+          "letterSpacing": "0.03em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "base",
+          "size": "1rem",
+          "lineHeight": "1.5",
+          "letterSpacing": "0.04em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "lg",
+          "size": "1.125rem",
+          "lineHeight": "1.4",
+          "letterSpacing": "0.05em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "xl",
+          "size": "1.25rem",
+          "lineHeight": "1.3",
+          "letterSpacing": "0.06em",
+          "fontWeight": "500"
+        },
+        {
+          "name": "2xl",
+          "size": "1.5rem",
+          "lineHeight": "1.2",
+          "letterSpacing": "0.07em",
+          "fontWeight": "500"
+        },
+        {
+          "name": "3xl",
+          "size": "1.875rem",
+          "lineHeight": "1.1",
+          "letterSpacing": "0.08em",
+          "fontWeight": "600"
+        },
+        {
+          "name": "4xl",
+          "size": "2.25rem",
+          "lineHeight": "1.1",
+          "letterSpacing": "0.09em",
+          "fontWeight": "600"
+        },
+        {
+          "name": "5xl",
+          "size": "3rem",
+          "lineHeight": "1.05",
+          "letterSpacing": "0.1em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "6xl",
+          "size": "3.75rem",
+          "lineHeight": "1.05",
+          "letterSpacing": "0.11em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "7xl",
+          "size": "4.5rem",
+          "lineHeight": "1.0",
+          "letterSpacing": "0.12em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "8xl",
+          "size": "6rem",
+          "lineHeight": "1.0",
+          "letterSpacing": "0.13em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "9xl",
+          "size": "8rem",
+          "lineHeight": "1.0",
+          "letterSpacing": "0.14em",
+          "fontWeight": "700"
+        }
+      ],
+      "welcomeSectionTypography": {
+        "placement": "Centered, prominent placement on the hero section.",
+        "implementation": "Large 'gallient' font for the main headline, with 'DM Sans' for a supporting tagline below. Ensure generous spacing and high contrast."
+      }
+    },
+    "originImagesUrls": []
+  },
+  "attachments": {
+    "contentImagesUrls": [],
+    "inspirationImagesUrls": [
+      "https://wixmp-c562ea68f10846b458285ce5.wixmp.com/scraped-screenshots/screenshot-1773118170478.webp"
+    ]
+  },
+  "status": "READY",
+  "plan": "\n\n```json\n{\n  \"sections\": [\n    {\n      \"id\": \"overview\",\n      \"title\": \"## Overview\",\n      \"content\": \"A luxury real estate showcase website for The Viceroy Estate, featuring 14 handcrafted villas in the Shivalik Hills with detailed property information, amenities, and contact capabilities.\"\n    },\n    {\n      \"id\": \"key-features\",\n      \"title\": \"## Key features\",\n      \"content\": \"- **View Villa Listing**: Browse all 14 luxury villas with images and key details.\\n- **View Villa Details**: Explore comprehensive information about each villa including architecture, amenities, and specifications.\\n- **View Estate Information**: Learn about The Viceroy Estate's location, philosophy, and lifestyle offerings.\\n- **View Amenities & Services**: Discover available facilities including jacuzzis, gyms, and wellness services.\\n- **Submit Inquiry Form**: Contact the estate team for property inquiries and visit scheduling.\",\n      \"metadata\": [\n        { \"id\": \"view-villa-listing\", \"name\": \"View Villa Listing\" },\n        { \"id\": \"view-villa-details\", \"name\": \"View Villa Details\" },\n        { \"id\": \"view-estate-information\", \"name\": \"View Estate Information\" },\n        { \"id\": \"view-amenities-services\", \"name\": \"View Amenities & Services\" },\n        { \"id\": \"submit-inquiry-form\", \"name\": \"Submit Inquiry Form\" }\n      ]\n    },\n    {\n      \"id\": \"structure\",\n      \"title\": \"## Structure\",\n      \"content\": \"- **Header (Reusable)**: Site logo, navigation menu with links to Villas, About, Amenities, Location, and Contact.\\n- **Footer (Reusable)**: Estate contact information, social media links, privacy policy, and quick navigation links.\\n- **Home Page**: Hero section with estate overview, featured villa highlights, and call-to-action for inquiries.\\n- **Villas Page**: Gallery-style listing of all 14 villas with filtering options and detailed view capability.\\n- **About Page**: Estate story, architectural philosophy, location details, and lifestyle vision.\\n- **Amenities Page**: Comprehensive showcase of facilities, services, and wellness offerings.\\n- **Contact Page**: Inquiry form, estate location map, and contact details.\"\n    }\n  ],\n  \"apps\": [\n    {\n      \"id\": \"wix-cms\",\n      \"keyFeatures\": [\n        { \"id\": \"view-villa-listing\", \"name\": \"View Villa Listing\" },\n        { \"id\": \"view-villa-details\", \"name\": \"View Villa Details\" },\n        { \"id\": \"view-estate-information\", \"name\": \"View Estate Information\" },\n        { \"id\": \"view-amenities-services\", \"name\": \"View Amenities & Services\" },\n        { \"id\": \"submit-inquiry-form\", \"name\": \"Submit Inquiry Form\" }\n      ]\n    }\n  ],\n  \"version\": \"4.0.1\"\n}\n```"
+}
