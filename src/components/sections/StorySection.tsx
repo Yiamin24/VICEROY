@@ -75,36 +75,22 @@ export default function StorySection() {
                   transition={{ duration: 0.5 }}
                 />
 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows - Dark and Sharp */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all shadow-lg z-10"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/80 hover:bg-black flex items-center justify-center transition-all z-10"
                   aria-label="Previous slide"
                 >
-                  <ChevronLeft className="w-6 h-6 text-[#13133F]" />
+                  <ChevronLeft className="w-6 h-6 text-white" strokeWidth={1.5} />
                 </button>
 
                 <button
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all shadow-lg z-10"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/80 hover:bg-black flex items-center justify-center transition-all z-10"
                   aria-label="Next slide"
                 >
-                  <ChevronRight className="w-6 h-6 text-[#13133F]" />
+                  <ChevronRight className="w-6 h-6 text-white" strokeWidth={1.5} />
                 </button>
-
-                {/* Slide Indicators */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                  {images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
           </div>
