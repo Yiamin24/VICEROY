@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function LuxurySection() {
   const sectionRef = useRef(null);
@@ -38,7 +38,7 @@ export default function LuxurySection() {
 
           {/* Butterfly */}
           <motion.div
-            className="absolute top-0 right-6 md:right-10 lg:right-16"
+            className="absolute top-6 md:top-8 lg:top-10 right-6 md:right-10 lg:right-16"
             style={{ y: butterflyY }}
           >
             <img
@@ -50,15 +50,17 @@ export default function LuxurySection() {
 
         </div>
 
-        {/* Content */}
+        {/* Content Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
-          {/* Left */}
+          {/* Left Column */}
           <div className="lg:col-span-5 space-y-6">
 
             <p
               className="text-[#13133F] text-base md:text-lg leading-relaxed"
-              style={{ fontFamily: "'Manrope', sans-serif" }}
+              style={{
+                fontFamily: "'Manrope', sans-serif"
+              }}
             >
               Quietly commanding its place atop a storied ridge in the Shivalik Hills,
               The Viceroy Estate is an intimate collection of 14 handcrafted villas –
@@ -78,7 +80,7 @@ export default function LuxurySection() {
 
           </div>
 
-          {/* Right Image */}
+          {/* Right Column Image */}
           <div className="lg:col-span-7">
             <div className="w-full aspect-[4/3] overflow-hidden">
               <img
