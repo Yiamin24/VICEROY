@@ -9,7 +9,6 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const navItems = [
-    { label: 'HOME', section: 'hero' },
     { label: 'STORY', section: 'story' },
     { label: 'VILLAS', section: 'villas' },
     { label: 'AMENITIES', section: 'amenities' },
@@ -30,21 +29,17 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         {/* Logo */}
         <button 
           onClick={() => onNavigate('hero')}
-          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          className="hover:opacity-80 transition-opacity"
         >
           <img 
             src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
             alt="The Viceroy Estate" 
-            className="h-14 w-14"
+            className="h-16 w-16 md:h-20 md:w-20"
           />
-          <div className="flex flex-col items-start">
-            <span className="text-white font-heading text-xl tracking-wider leading-tight">VICEROY</span>
-            <span className="text-white/90 text-xs tracking-[0.25em] leading-tight">ESTATE</span>
-          </div>
         </button>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-10">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden lg:flex items-center justify-center gap-10 flex-1">
           {navItems.map((item) => (
             <button
               key={item.section}
@@ -55,6 +50,9 @@ export default function Navigation({ onNavigate }: NavigationProps) {
             </button>
           ))}
         </div>
+
+        {/* Spacer for balance on desktop */}
+        <div className="hidden lg:block w-16 md:w-20"></div>
 
         {/* Mobile Menu Button */}
         <button
