@@ -52,7 +52,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         {/* Logo */}
         <button 
           onClick={() => onNavigate('hero')}
-          className="hover:opacity-80 transition-opacity flex-shrink-0"
+          className="hover:opacity-80 transition-opacity flex-shrink-0 -mt-4"
         >
           <img 
             src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
