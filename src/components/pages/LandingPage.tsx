@@ -45,7 +45,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-paragraph">
       <Navigation onNavigate={scrollToSection} />
-      <HeroSection onExploreClick={() => scrollToSection('villas')} />
+      <HeroSection />
       <StorySection />
       <VillasSection villas={villas} isLoading={isLoading} />
       <AmenitiesSection amenities={amenities} isLoading={isLoading} />
