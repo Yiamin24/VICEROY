@@ -98,7 +98,7 @@ export default function LocationSection() {
         
         {/* Header Section */}
         <FadeIn>
-          <div className="flex flex-col items-center text-center space-y-6 pt-12 pb-24 max-w-5xl mx-auto">
+          <div className="flex flex-col items-center text-center space-y-6 pt-12 pb-20 md:pb-32 max-w-5xl mx-auto">
             <Image 
               src="https://static.wixstatic.com/media/cef78c_be5f8e9d983145789692bcd923e400d4~mv2.png" 
               alt="Map Icon" 
@@ -110,84 +110,118 @@ export default function LocationSection() {
             >
               Gateway to comfort<br/>&amp; Exploration
             </h2>
-            <p className="text-[#F4F1EB]/80 text-lg md:text-xl leading-relaxed mt-8 font-medium max-w-4xl mx-auto">
+            <p className="text-[#F4F1EB] opacity-80 text-lg md:text-xl leading-relaxed mt-8 font-medium max-w-4xl mx-auto">
               The Viceroy Estate boasts a prime location that seamlessly connects residents to essential amenities and key destinations. For travelers, easy access to Shimla and Chandigarh airports facilitates seamless journeys to and from major cities and international destinations. Within reach are reputable schools and healthcare facilities and convenience stores, ensuring convenience and peace of mind for families. Additionally, the estate's proximity to temples, shrines and heritage parks offers residents opportunities for spiritual retreats and cultural exploration, enriching their lifestyle with diverse experiences amidst the serene beauty of the Shivalik Hills.
             </p>
           </div>
         </FadeIn>
 
         {/* Timeline Section */}
-        <div className="relative w-full max-w-6xl mx-auto mt-8">
+        <div className="relative w-full max-w-[1400px] mx-auto mt-8 px-2 sm:px-4">
           {/* Center Line for Desktop */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
 
-          <div className="flex flex-col space-y-24 md:space-y-32">
+          <div className="flex flex-col space-y-24 md:space-y-40">
             {locations.map((item, index) => {
               const isLeft = index % 2 === 0;
 
               return (
-                <div key={index} className="relative w-full group">
+                <div key={index} className="relative w-full group overflow-hidden md:overflow-visible">
                   
-                  {/* Desktop Layout */}
-                  <div className="hidden md:flex w-full items-center relative z-10">
+                  {/* Desktop Layout -> Flex wrap handles smaller screens gracefully without overflow */}
+                  <div className="hidden lg:flex w-full items-center relative z-10">
                     
                     {/* Pin on the center line */}
-                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-8">
+                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-8 px-4 z-20">
                       <CustomPin />
                     </div>
 
-                    <div className={`w-1/2 flex items-center ${isLeft ? 'justify-end pr-16 lg:pr-24' : 'absolute right-0 justify-start pl-16 lg:pl-24'}`}>
-                      <FadeIn delay={0.1}>
-                        <div className={`flex items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
-                          
-                          {/* Text Content */}
-                          <div className={`flex flex-col justify-center max-w-[280px] lg:max-w-[320px] ${isLeft ? 'mr-12 text-left' : 'ml-12 text-left'}`}>
-                            <h3 className="text-4xl lg:text-5xl text-[#F4F1EB] mb-4" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
-                              {item.title}
-                            </h3>
-                            {item.drive && (
-                              <p className="text-[#F4F1EB] font-medium text-lg tracking-wide mb-1">
-                                Drive: {item.drive}
-                              </p>
-                            )}
-                            {item.distance && (
-                              <p className="text-[#F4F1EB] font-medium text-lg tracking-wide">
-                                Distance: {item.distance}
-                              </p>
-                            )}
-                          </div>
+                    {/* Left Column Container */}
+                    <div className="w-1/2 flex justify-end pr-8 xl:pr-16">
+                      {isLeft && (
+                        <FadeIn delay={0.1}>
+                          <div className="flex items-center flex-row justify-end w-full max-w-[500px] xl:max-w-[650px]">
+                            {/* Text Content */}
+                            <div className="flex flex-col justify-center mr-6 xl:mr-10 text-left flex-shrink-0 min-w-[140px] xl:min-w-[180px]">
+                              <h3 className="text-3xl xl:text-5xl text-[#F4F1EB] mb-2 xl:mb-4 whitespace-nowrap" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                                {item.title}
+                              </h3>
+                              {item.drive && (
+                                <p className="text-[#F4F1EB] font-medium text-sm xl:text-lg tracking-wide mb-1">
+                                  Drive: {item.drive}
+                                </p>
+                              )}
+                              {item.distance && (
+                                <p className="text-[#F4F1EB] font-medium text-sm xl:text-lg tracking-wide">
+                                  Distance: {item.distance}
+                                </p>
+                              )}
+                            </div>
 
-                          {/* Image Box */}
-                          <div className="w-[300px] lg:w-[400px] flex-shrink-0">
-                            <div className="relative aspect-[3/4] bg-[#2A2A2A] overflow-hidden shadow-2xl">
+                            {/* Image Box */}
+                            <div className="w-full flex-grow max-w-[280px] xl:max-w-[400px]">
                               <Image 
                                 src={item.image} 
                                 alt={item.title} 
-                                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                className="w-full h-auto object-contain transform transition-transform duration-700 hover:scale-105"
                               />
                             </div>
                           </div>
-                          
-                        </div>
-                      </FadeIn>
+                        </FadeIn>
+                      )}
+                    </div>
+
+                    {/* Right Column Container */}
+                    <div className="w-1/2 flex justify-start pl-8 xl:pl-16">
+                      {!isLeft && (
+                        <FadeIn delay={0.1}>
+                          <div className="flex items-center flex-row-reverse justify-end w-full max-w-[500px] xl:max-w-[650px]">
+                            {/* Text Content */}
+                            <div className="flex flex-col justify-center ml-6 xl:ml-10 text-left flex-shrink-0 min-w-[140px] xl:min-w-[180px]">
+                              <h3 className="text-3xl xl:text-5xl text-[#F4F1EB] mb-2 xl:mb-4 whitespace-nowrap" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                                {item.title}
+                              </h3>
+                              {item.drive && (
+                                <p className="text-[#F4F1EB] font-medium text-sm xl:text-lg tracking-wide mb-1">
+                                  Drive: {item.drive}
+                                </p>
+                              )}
+                              {item.distance && (
+                                <p className="text-[#F4F1EB] font-medium text-sm xl:text-lg tracking-wide">
+                                  Distance: {item.distance}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Image Box */}
+                            <div className="w-full flex-grow max-w-[280px] xl:max-w-[400px]">
+                              <Image 
+                                src={item.image} 
+                                alt={item.title} 
+                                className="w-full h-auto object-contain transform transition-transform duration-700 hover:scale-105"
+                              />
+                            </div>
+                          </div>
+                        </FadeIn>
+                      )}
                     </div>
 
                   </div>
 
-                  {/* Mobile Layout */}
-                  <div className="md:hidden flex flex-col items-center text-center space-y-6 px-4 relative z-10">
+                  {/* Tablet & Mobile Layout */}
+                  <div className="lg:hidden flex flex-col items-center text-center space-y-6 relative z-10 mx-auto w-full max-w-[500px]">
                     <FadeIn delay={0.1}>
-                      <div className="w-full max-w-[300px] aspect-[4/5] bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-6">
+                      <div className="w-full mb-6 relative">
                         <Image 
                           src={item.image} 
                           alt={item.title} 
-                          className="w-full h-full object-cover"
+                          className="w-full h-auto object-contain max-h-[500px] mx-auto"
                         />
                       </div>
-                      <h3 className="text-4xl text-[#F4F1EB] mb-2" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                      <h3 className="text-4xl text-[#F4F1EB] mb-2 px-4" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
                         {item.title}
                       </h3>
-                      <div className="flex flex-col items-center justify-center gap-1 text-[#F4F1EB] font-medium text-lg tracking-wide">
+                      <div className="flex flex-col items-center justify-center gap-1 text-[#F4F1EB] font-medium text-lg tracking-wide px-4">
                         {item.drive && <span>Drive: {item.drive}</span>}
                         {item.distance && <span>Distance: {item.distance}</span>}
                       </div>
@@ -196,8 +230,8 @@ export default function LocationSection() {
                   
                   {/* Mobile Connector Line */}
                   {index !== locations.length - 1 && (
-                    <div className="md:hidden w-[1px] h-24 bg-white/20 mx-auto mt-12 mb-4 relative z-0">
-                       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-4">
+                    <div className="lg:hidden w-[1px] h-32 bg-white/20 mx-auto mt-16 mb-8 relative z-0">
+                       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-6">
                          <div className="w-4 h-4 rounded-full border-2 border-[#F4F1EB]"></div>
                        </div>
                     </div>
