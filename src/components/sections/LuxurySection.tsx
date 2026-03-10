@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function LuxurySection() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -19,7 +19,7 @@ export default function LuxurySection() {
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-16">
 
-        {/* Heading Section */}
+        {/* Heading */}
         <div className="relative mb-4 md:mb-6">
 
           <h2
@@ -38,7 +38,7 @@ export default function LuxurySection() {
 
           {/* Butterfly */}
           <motion.div
-            className="absolute -top-24 right-0 md:-top-32 md:right-8 lg:-top-40 lg:right-16"
+            className="absolute top-0 right-0 md:right-8 lg:right-16"
             style={{ y: butterflyY }}
           >
             <img
@@ -50,7 +50,7 @@ export default function LuxurySection() {
 
         </div>
 
-        {/* Content Grid */}
+        {/* Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
           {/* Left */}
@@ -78,7 +78,7 @@ export default function LuxurySection() {
 
           </div>
 
-          {/* Right Image */}
+          {/* Right */}
           <div className="lg:col-span-7">
             <div className="w-full aspect-[4/3] overflow-hidden">
               <img
