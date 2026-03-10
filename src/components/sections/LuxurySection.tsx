@@ -5,7 +5,7 @@ export default function LuxurySection() {
   return (
     <section 
       id="luxury" 
-      className="py-24 md:py-32 bg-white relative overflow-hidden"
+      className="py-24 md:py-32 bg-lightBackground relative overflow-hidden"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex flex-col items-start text-left space-y-12 relative">
