@@ -52,7 +52,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         {/* Logo */}
         <button 
           onClick={() => onNavigate('hero')}
-          className="hover:opacity-80 transition-opacity"
+          className="hover:opacity-80 transition-opacity flex-shrink-0"
         >
           <img 
             src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
@@ -61,8 +61,8 @@ export default function Navigation({ onNavigate }: NavigationProps) {
           />
         </button>
 
-        {/* Desktop Navigation - Centered */}
-        <div className="hidden lg:flex items-center justify-center gap-10 flex-1">
+        {/* Desktop Navigation - Shifted Right & Centered Vertically */}
+        <div className="hidden lg:flex items-center justify-center gap-10 flex-1 ml-20">
           {navItems.map((item) => (
             <button
               key={item.section}
@@ -78,7 +78,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         </div>
 
         {/* Spacer for balance on desktop */}
-        <div className="hidden lg:block w-24 md:w-32 lg:w-[150px]"></div>
+        <div className="hidden lg:block w-24 md:w-32 lg:w-[150px] flex-shrink-0"></div>
 
         {/* Mobile Menu Button */}
         <button
