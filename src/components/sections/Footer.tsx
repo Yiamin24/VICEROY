@@ -13,7 +13,7 @@ export default function Footer() {
             <img 
               src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
               alt="The Viceroy Estate" 
-              className="h-20 w-20 md:h-24 md:w-24 mb-3"
+              className="h-36 w-36 md:h-40 md:w-40 lg:h-48 lg:w-48 mb-3"
             />
             <p 
               className="text-white/60 text-xs text-center md:text-left max-w-xs"

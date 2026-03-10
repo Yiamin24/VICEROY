@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Instagram, Youtube, Linkedin, Send, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -33,7 +33,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC] relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-20 lg:py-24 bg-[#E9E3DC] relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-[#13133F]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#13133F]/5 rounded-full blur-3xl" />
@@ -142,41 +142,6 @@ export default function ContactSection() {
                   >
                     +91 XXXX XXXXXX
                   </p>
-                </div>
-              </FadeIn>
-
-              {/* Social Links */}
-              <FadeIn delay={0.4}>
-                <div className="pt-6">
-                  <h4 
-                    className="text-[#13133F] text-xl mb-4"
-                    style={{
-                      fontFamily: '"Cormorant Garamond", serif',
-                      fontWeight: 300
-                    }}
-                  >
-                    Follow Our Journey
-                  </h4>
-                  <div className="flex gap-3">
-                    <a 
-                      href="#" 
-                      className="w-12 h-12 rounded-full bg-[#13133F]/10 hover:bg-[#13133F] flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    >
-                      <Instagram className="h-5 w-5 text-[#13133F] group-hover:text-white transition-colors" />
-                    </a>
-                    <a 
-                      href="#" 
-                      className="w-12 h-12 rounded-full bg-[#13133F]/10 hover:bg-[#13133F] flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    >
-                      <Youtube className="h-5 w-5 text-[#13133F] group-hover:text-white transition-colors" />
-                    </a>
-                    <a 
-                      href="#" 
-                      className="w-12 h-12 rounded-full bg-[#13133F]/10 hover:bg-[#13133F] flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    >
-                      <Linkedin className="h-5 w-5 text-[#13133F] group-hover:text-white transition-colors" />
-                    </a>
-                  </div>
                 </div>
               </FadeIn>
             </div>
