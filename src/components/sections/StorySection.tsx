@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Image } from '@/components/ui/image';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -42,11 +43,7 @@ export default function StorySection() {
             {/* SVG Icon with line */}
             <div className="flex flex-col items-center">
               <div className="h-16 w-[1px] bg-[#13133F] mb-6"></div>
-              <img 
-                src="https://static.wixstatic.com/shapes/cef78c_cc426ba4732a4a29b66b1529bc9c6842.svg" 
-                alt="Icon" 
-                className="w-12 h-12"
-              />
+              <Image src="https://static.wixstatic.com/shapes/cef78c_cc426ba4732a4a29b66b1529bc9c6842.svg" alt="Icon" className="w-12 h-12" />
             </div>
 
             {/* Main Text with Cormorant Garamond */}
