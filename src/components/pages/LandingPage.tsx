@@ -10,7 +10,6 @@ import LuxurySection from '@/components/sections/LuxurySection';
 import VillasSection from '@/components/sections/VillasSection';
 import AmenitiesSection from '@/components/sections/AmenitiesSection';
 import LocationSection from '@/components/sections/LocationSection';
-import LifestyleSection from '@/components/sections/LifestyleSection';
 import GallerySection from '@/components/sections/GallerySection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
@@ -52,7 +51,6 @@ export default function LandingPage() {
       <VillasSection villas={villas} isLoading={isLoading} />
       <AmenitiesSection amenities={amenities} isLoading={isLoading} />
       <LocationSection />
-      <LifestyleSection />
       <GallerySection />
       <ContactSection />
       <Footer />
