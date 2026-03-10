@@ -25,7 +25,7 @@ export default function LandingPage() {
       try {
         const [villasResult, amenitiesResult] = await Promise.all([
           BaseCrudService.getAll<Villas>('villas', {}, { limit: 3 }),
-          BaseCrudService.getAll<Amenities>('amenities', {}, { limit: 6 }),
+          BaseCrudService.getAll<Amenities>('amenities', {}, { limit: 50 }),
         ]);
         setVillas(villasResult.items || []);
         setAmenities(amenitiesResult.items || []);
