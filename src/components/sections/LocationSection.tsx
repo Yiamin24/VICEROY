@@ -122,7 +122,7 @@ export default function LocationSection() {
           {/* Center Line for Desktop */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
 
-          <div className="flex flex-col space-y-16 md:space-y-24 lg:space-y-32">
+          <div className="flex flex-col space-y-12 md:space-y-20 lg:space-y-24">
             {locations.map((item, index) => {
               const isLeft = index % 2 === 0;
 
@@ -137,23 +137,23 @@ export default function LocationSection() {
                       <CustomPin />
                     </div>
 
-                    <div className={`w-1/2 flex items-center ${isLeft ? 'justify-end pr-8 lg:pr-16' : 'absolute right-0 justify-start pl-8 lg:pl-16'}`}>
+                    <div className={`w-1/2 flex items-center ${isLeft ? 'justify-end pr-6 lg:pr-12 xl:pr-16' : 'absolute right-0 justify-start pl-6 lg:pl-12 xl:pl-16'}`}>
                       <FadeIn delay={0.1}>
-                        <div className={`flex items-center gap-6 lg:gap-8 xl:gap-12 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
+                        <div className={`flex items-center gap-4 lg:gap-6 xl:gap-8 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
                           
                           {/* Text Content */}
-                          <div className={`flex flex-col justify-center max-w-[240px] lg:max-w-[280px] xl:max-w-[320px] ${isLeft ? 'text-right' : 'text-left'}`}>
-                            <h3 className="text-5xl lg:text-6xl xl:text-7xl text-[#F4F1EB] mb-5 lg:mb-6 leading-[1.1]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '1px' }}>
+                          <div className={`flex flex-col justify-center max-w-[180px] lg:max-w-[200px] xl:max-w-[220px] ${isLeft ? 'text-right' : 'text-left'}`}>
+                            <h3 className="text-3xl lg:text-4xl xl:text-[2.75rem] text-[#F4F1EB] mb-3 lg:mb-4 leading-[1.15]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '0.3px' }}>
                               {item.title}
                             </h3>
                             <div className="space-y-0.5">
                               {item.drive && (
-                                <p className="text-[#F4F1EB] font-light text-base lg:text-lg tracking-wide">
+                                <p className="text-[#F4F1EB] font-light text-sm lg:text-[15px] tracking-wide">
                                   Drive: {item.drive}
                                 </p>
                               )}
                               {item.distance && (
-                                <p className="text-[#F4F1EB] font-light text-base lg:text-lg tracking-wide">
+                                <p className="text-[#F4F1EB] font-light text-sm lg:text-[15px] tracking-wide">
                                   Distance: {item.distance}
                                 </p>
                               )}
@@ -161,7 +161,7 @@ export default function LocationSection() {
                           </div>
 
                           {/* Image Box */}
-                          <div className="w-40 md:w-48 lg:w-56 xl:w-64 flex-shrink-0">
+                          <div className="w-36 md:w-44 lg:w-48 xl:w-52 flex-shrink-0">
                             <div className="relative w-full bg-[#2A2A2A] overflow-hidden shadow-2xl">
                               <Image 
                                 src={item.image} 
@@ -178,19 +178,19 @@ export default function LocationSection() {
                   </div>
 
                   {/* Mobile Layout */}
-                  <div className="md:hidden flex flex-col items-center text-center space-y-4 px-4 relative z-10">
+                  <div className="md:hidden flex flex-col items-center text-center space-y-3 px-4 relative z-10">
                     <FadeIn delay={0.1}>
-                      <div className="w-full max-w-[280px] sm:max-w-xs bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-4">
+                      <div className="w-full max-w-[260px] sm:max-w-[280px] bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-3">
                         <Image 
                           src={item.image} 
                           alt={item.title} 
                           className="w-full h-auto object-contain"
                         />
                       </div>
-                      <h3 className="text-5xl sm:text-6xl text-[#F4F1EB] mb-5 leading-[1.1]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '1px' }}>
+                      <h3 className="text-4xl sm:text-[2.75rem] text-[#F4F1EB] mb-3 leading-[1.15]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '0.3px' }}>
                         {item.title}
                       </h3>
-                      <div className="flex flex-col items-center justify-center gap-0.5 text-[#F4F1EB] font-light text-base sm:text-lg tracking-wide">
+                      <div className="flex flex-col items-center justify-center gap-0.5 text-[#F4F1EB] font-light text-sm sm:text-[15px] tracking-wide">
                         {item.drive && <span>Drive: {item.drive}</span>}
                         {item.distance && <span>Distance: {item.distance}</span>}
                       </div>
