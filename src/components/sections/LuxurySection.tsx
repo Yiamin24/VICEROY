@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Image } from '@/components/ui/image';
 
 export default function LuxurySection() {
   const sectionRef = useRef(null);
@@ -41,11 +42,7 @@ export default function LuxurySection() {
             className="absolute -top-12 md:-top-14 lg:-top-16 right-6 md:right-10 lg:right-16"
             style={{ y: butterflyY }}
           >
-            <img
-              src="https://static.wixstatic.com/media/cef78c_05a9be484db24967b6ac3354e2f89a31~mv2.png"
-              alt="Butterfly"
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 opacity-90"
-            />
+            <Image src="https://static.wixstatic.com/media/cef78c_05a9be484db24967b6ac3354e2f89a31~mv2.png" alt="Butterfly" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 opacity-90" />
           </motion.div>
 
         </div>
@@ -81,11 +78,7 @@ export default function LuxurySection() {
           {/* Right */}
           <div className="lg:col-span-7">
             <div className="w-full aspect-[4/3] overflow-hidden">
-              <img
-                src="https://static.wixstatic.com/media/cef78c_a12c3a34095043ae96facbc67b1aeeb1~mv2.jpg"
-                alt="The Viceroy Estate"
-                className="w-full h-full object-cover"
-              />
+              <Image src="https://static.wixstatic.com/media/cef78c_a12c3a34095043ae96facbc67b1aeeb1~mv2.jpg" alt="The Viceroy Estate" className="w-full h-full object-cover" />
             </div>
           </div>
 

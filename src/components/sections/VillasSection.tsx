@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Villas } from '@/entities';
+import { Image } from '@/components/ui/image';
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -75,11 +76,7 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
         
         {/* Slow Down & Reconnect Section */}
         <FadeIn className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-20 md:mb-28">
-          <img 
-            src="https://static.wixstatic.com/media/cef78c_5804c42dacde4d0e99fd7ed02970c941~mv2.png" 
-            alt="Star" 
-            className="w-16 h-16 md:w-20 md:h-20 mb-6 object-contain"
-          />
+          <Image src="https://static.wixstatic.com/media/cef78c_5804c42dacde4d0e99fd7ed02970c941~mv2.png" alt="Star" className="w-16 h-16 md:w-20 md:h-20 mb-6 object-contain" />
           <span 
             className="text-[#13133F] uppercase tracking-[0.2em] text-sm md:text-base mb-6"
             style={{ fontFamily: "'Manrope', sans-serif" }}
@@ -125,11 +122,7 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
                 
                 {/* Image Section */}
                 <div className="relative w-full aspect-[3/4] overflow-hidden mb-4">
-                  <img
-                    src={villa.image}
-                    alt={villa.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  <Image src={villa.image} alt={villa.title} className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-5 md:p-6 flex flex-col justify-end">

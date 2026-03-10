@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Amenities } from '@/entities';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
+import { Image } from '@/components/ui/image';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -58,11 +59,23 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {amenities.map((amenity, index) => (
               <FadeIn key={amenity._id} delay={index * 0.1}>
-                <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                  <h3 className="text-xl font-heading text-primary mb-3">{amenity.amenityName}</h3>
-                  <p className="text-primary/60 text-sm">
-                    {amenity.description || "Premium amenity for your comfort"}
-                  </p>
+                <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow h-full flex flex-col">
+                  {amenity.amenityImage && (
+                    <div className="relative w-full h-48 overflow-hidden">
+                      <Image
+                        src={amenity.amenityImage}
+                        alt={amenity.amenityName || 'Amenity'}
+                        className="w-full h-full object-cover"
+                        width={400}
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg font-heading text-primary mb-2">{amenity.amenityName}</h3>
+                    <p className="text-primary/60 text-sm flex-grow">
+                      {amenity.description || "Premium amenity for your comfort"}
+                    </p>
+                  </div>
                 </div>
               </FadeIn>
             ))}
