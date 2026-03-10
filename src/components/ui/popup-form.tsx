@@ -3,6 +3,7 @@ import { X, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { BaseCrudService } from '@/integrations';
 
 interface PopupFormProps {
   isOpen: boolean;
@@ -11,11 +12,35 @@ interface PopupFormProps {
 
 export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    onClose();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      await BaseCrudService.create('inquiries', {
+        _id: crypto.randomUUID(),
+        fullName: formData.name,
+        emailAddress: formData.email,
+        phoneNumber: formData.phone,
+        message: formData.message,
+        submissionDate: new Date(),
+      });
+      setSubmitMessage('Thank you! Your inquiry has been submitted successfully.');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => {
+        setSubmitMessage('');
+        onClose();
+      }, 2000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage('Error submitting form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -118,12 +143,18 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
             
             <Button 
               type="submit"
-              className="w-full bg-[#13133F] hover:bg-[#13133F]/90 text-white h-11 sm:h-12 rounded-lg sm:rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm group"
+              disabled={isSubmitting}
+              className="w-full bg-[#13133F] hover:bg-[#13133F]/90 text-white h-11 sm:h-12 rounded-lg sm:rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm group disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ fontFamily: "'Manrope', sans-serif" }}
             >
-              <span>Send Message</span>
+              <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
+            {submitMessage && (
+              <p className={`text-center text-xs sm:text-sm ${submitMessage.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
+                {submitMessage}
+              </p>
+            )}
           </form>
         </div>
       </div>

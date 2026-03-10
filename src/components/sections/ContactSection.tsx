@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { BaseCrudService } from '@/integrations';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -26,10 +27,32 @@ const FadeIn: React.FC<{ children: React.ReactNode; delay?: number }> = ({
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      await BaseCrudService.create('inquiries', {
+        _id: crypto.randomUUID(),
+        fullName: formData.name,
+        emailAddress: formData.email,
+        phoneNumber: formData.phone,
+        message: formData.message,
+        submissionDate: new Date(),
+      });
+      setSubmitMessage('Thank you! Your inquiry has been submitted successfully.');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setSubmitMessage(''), 3000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage('Error submitting form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -244,14 +267,22 @@ export default function ContactSection() {
                         required
                       />
                     </div>
-                    <Button 
-                      type="submit"
-                      className="w-full bg-[#13133F] hover:bg-[#13133F]/90 text-white h-14 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 text-base group"
-                      style={{ fontFamily: "'Manrope', sans-serif" }}
-                    >
-                      <span>Send Message</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                    <div className="space-y-3">
+                      <Button 
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-[#13133F] hover:bg-[#13133F]/90 text-white h-14 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 text-base group disabled:opacity-50 disabled:cursor-not-allowed"
+                        style={{ fontFamily: "'Manrope', sans-serif" }}
+                      >
+                        <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                      {submitMessage && (
+                        <p className={`text-center text-sm ${submitMessage.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
+                          {submitMessage}
+                        </p>
+                      )}
+                    </div>
                   </form>
                 </div>
               </FadeIn>

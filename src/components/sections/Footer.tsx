@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Mail, Phone, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Image } from '@/components/ui/image';
 
 export default function Footer() {
   return (
@@ -10,11 +11,7 @@ export default function Footer() {
           
           {/* Logo & Brand - Left */}
           <div className="md:col-span-3 flex flex-col items-center md:items-start">
-            <img 
-              src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
-              alt="The Viceroy Estate" 
-              className="h-36 w-36 md:h-40 md:w-40 lg:h-48 lg:w-48 mb-3"
-            />
+            <Image src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" alt="The Viceroy Estate" className="h-36 w-36 md:h-40 md:w-40 lg:h-48 lg:w-48 mb-3" />
             <p 
               className="text-white/60 text-xs text-center md:text-left max-w-xs"
               style={{ fontFamily: "'Manrope', sans-serif" }}

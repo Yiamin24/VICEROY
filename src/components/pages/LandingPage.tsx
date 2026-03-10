@@ -15,6 +15,7 @@ import GallerySection from '@/components/sections/GallerySection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
 import PopupForm from '@/components/ui/popup-form';
+import { Image } from '@/components/ui/image';
 
 export default function LandingPage() {
   const [villas, setVillas] = useState<Villas[]>([]);
@@ -81,11 +82,7 @@ export default function LandingPage() {
               className="w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
               aria-label="Chat on WhatsApp"
             >
-              <img 
-                src="https://static.wixstatic.com/media/cef78c_e3b451e41175463f9fb63385c5e2fd5e~mv2.png"
-                alt="WhatsApp"
-                className="w-full h-full rounded-full"
-              />
+              <Image src="https://static.wixstatic.com/media/cef78c_e3b451e41175463f9fb63385c5e2fd5e~mv2.png" alt="WhatsApp" className="w-full h-full rounded-full" />
             </a>
             
             {/* Contact Form Button */}

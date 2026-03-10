@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Amenities } from '@/entities';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
+import { Image } from '@/components/ui/image';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -56,11 +57,7 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
       <div className="absolute inset-0 bg-gradient-to-b from-[#181a43] via-[#181a43]/95 to-[#181a43] z-0" />
       
       {/* Background Image - Bottom Right */}
-      <img 
-        src="https://static.wixstatic.com/media/cef78c_a516411178c242b6a03d7deecadca217~mv2.png"
-        alt=""
-        className="absolute bottom-0 right-0 z-[5]"
-      />
+      <Image src="https://static.wixstatic.com/media/cef78c_a516411178c242b6a03d7deecadca217~mv2.png" alt="" className="absolute bottom-0 right-0 z-[5]" />
       
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <FadeIn className="text-center mb-10 md:mb-12">
@@ -121,12 +118,7 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
                       key={index}
                       className="amenity-card flex-shrink-0 w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] rounded-lg overflow-hidden shadow-2xl relative group"
                     >
-                      <img
-                        src={amenity.image}
-                        alt={amenity.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
+                      <Image src={amenity.image} alt={amenity.name} className="w-full h-full object-cover" loading="lazy" />
                       {/* Text Overlay */}
                       <div className="amenity-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8 transition-all duration-300">
                         <h3 
