@@ -38,7 +38,7 @@ export default function LuxurySection() {
 
           {/* Butterfly */}
           <motion.div
-            className="absolute top-0 right-0 md:right-8 lg:right-16"
+            className="absolute top-0 -right-6 md:-right-10 lg:-right-16"
             style={{ y: butterflyY }}
           >
             <img
