@@ -48,11 +48,11 @@ export default function Navigation({ onNavigate }: NavigationProps) {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-      <div className="container mx-auto px-6 py-6 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <button 
           onClick={() => onNavigate('hero')}
-          className="hover:opacity-80 transition-opacity flex-shrink-0 -mt-4"
+          className="hover:opacity-80 transition-opacity flex-shrink-0"
         >
           <img 
             src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
