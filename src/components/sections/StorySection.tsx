@@ -33,8 +33,16 @@ export default function StorySection() {
               />
             </div>
 
-            {/* Main Text */}
-            <p className="text-[#13133F] text-3xl md:text-4xl lg:text-5xl font-heading font-light leading-relaxed tracking-tight">
+            {/* Main Text with Cormorant Garamond */}
+            <p 
+              className="text-[#13133F] text-3xl md:text-4xl lg:text-5xl"
+              style={{
+                fontFamily: '"Cormorant Garamond", serif',
+                fontWeight: 300,
+                letterSpacing: '-1px',
+                lineHeight: 1.2
+              }}
+            >
               Driven by a legacy of heritage & excellence since 1973, The Mount Shivalik Group, A pioneer in brewing takes a dive into boutique real estate development, redefining luxury living in India's most pristine landscapes.
             </p>
           </div>
