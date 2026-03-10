@@ -19,7 +19,7 @@ export default {
                 '9xl': ['6rem', { lineHeight: '1', letterSpacing: '-0.01em', fontWeight: 'bold' }],
             },
             fontFamily: {
-                heading: ['Bodoni Moda', 'Libre Caslon Display', 'Playfair Display', 'serif'],
+                heading: ['Noe Display', 'Bodoni Moda', 'Libre Caslon Display', 'Playfair Display', 'serif'],
                 paragraph: ['Inter', 'sans-serif']
             },
             colors: {
