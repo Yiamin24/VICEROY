@@ -19,19 +19,26 @@ const FadeIn: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 export default function StorySection() {
   return (
-    <section id="story" className="py-24 md:py-32 bg-lightBackground">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-heading text-primary mb-8">Our Story</h2>
-            <p className="text-xl md:text-2xl text-primary/80 leading-relaxed mb-6">
-              Quietly commanding its place atop a storied ridge in the Shivalik Hills, The Viceroy Estate is an intimate collection of 14 handcrafted villas — each an enduring statement of heritage and refinement.
+    <section id="story" className="py-24 md:py-32 bg-[#E9E3DC]">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <FadeIn>
+          <div className="flex flex-col items-center text-center space-y-12">
+            {/* SVG Icon with line */}
+            <div className="flex flex-col items-center">
+              <div className="h-16 w-[1px] bg-[#13133F] mb-6"></div>
+              <img 
+                src="https://static.wixstatic.com/shapes/cef78c_cc426ba4732a4a29b66b1529bc9c6842.svg" 
+                alt="Icon" 
+                className="w-12 h-12"
+              />
+            </div>
+
+            {/* Main Text */}
+            <p className="text-[#13133F] text-3xl md:text-4xl lg:text-5xl font-heading font-light leading-relaxed tracking-tight">
+              Driven by a legacy of heritage & excellence since 1973, The Mount Shivalik Group, A pioneer in brewing takes a dive into boutique real estate development, redefining luxury living in India's most pristine landscapes.
             </p>
-            <p className="text-lg text-primary/70 leading-relaxed">
-              Beyond their walls, these villas embrace a philosophy that champions mindful, rejuvenating living. In an era where urban landscapes grow denser, and life moves unrelentingly, The Viceroy Estate offers a rare alternative to slow living.
-            </p>
-          </FadeIn>
-        </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
