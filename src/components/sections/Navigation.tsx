@@ -9,6 +9,8 @@ interface NavigationProps {
 export default function Navigation({ onNavigate }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   
   const navItems = [
     { label: 'STORY', section: 'story' },
@@ -22,6 +24,21 @@ export default function Navigation({ onNavigate }: NavigationProps) {
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show/hide navigation based on scroll direction
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        // Scrolling up or near top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past threshold
+        setIsVisible(false);
+        setIsMenuOpen(false); // Close mobile menu when hiding
+      }
+      
+      setLastScrollY(currentScrollY);
+
+      // Active section detection
       const sections = ['hero', 'story', 'villas', 'amenities', 'location', 'lifestyle', 'gallery', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
@@ -37,9 +54,9 @@ export default function Navigation({ onNavigate }: NavigationProps) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const handleNavClick = (section: string) => {
     onNavigate(section);
@@ -48,14 +65,16 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <button 
           onClick={() => onNavigate('hero')}
           className="hover:opacity-80 transition-opacity flex-shrink-0"
         >
-          <Image src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" alt="The Viceroy Estate" className="h-24 w-24 md:h-32 md:w-32 lg:h-[160px] lg:w-[160px]" />
+          <Image src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" alt="The Viceroy Estate" className="h-32 w-32 sm:h-36 sm:w-36 md:h-40 md:w-40 lg:h-[160px] lg:w-[160px]" />
         </button>
 
         {/* Desktop Navigation - Shifted Right & Centered Vertically */}

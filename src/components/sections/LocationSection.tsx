@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 
 const FadeIn: React.FC<{ children: React.ReactNode; delay?: number }> = ({ children, delay = 0 }) => (
@@ -93,6 +94,16 @@ const CustomPin = () => (
 );
 
 export default function LocationSection() {
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentMobileIndex((prev) => (prev + 1) % locations.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentMobileIndex((prev) => (prev - 1 + locations.length) % locations.length);
+  };
+
   return (
     <section id="location" className="py-12 md:py-14 lg:py-16 bg-[#1A1A1A]">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -125,7 +136,68 @@ export default function LocationSection() {
           {/* Center Line for Desktop */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
 
-          <div className="flex flex-col space-y-8 md:space-y-12 lg:space-y-14">
+          {/* Mobile Carousel */}
+          <div className="md:hidden relative">
+            <div className="relative overflow-hidden">
+              <motion.div
+                key={currentMobileIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col items-center text-center space-y-3 px-4"
+              >
+                <div className="w-full max-w-[280px] sm:max-w-[320px] bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-3">
+                  <Image 
+                    src={locations[currentMobileIndex].image} 
+                    alt={locations[currentMobileIndex].title} 
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                <h3 className="text-4xl sm:text-5xl text-[#F4F1EB] mb-3 leading-[1.15]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '0.3px' }}>
+                  {locations[currentMobileIndex].title}
+                </h3>
+                <div className="flex flex-col items-center justify-center gap-0.5 text-[#F4F1EB] font-light text-sm sm:text-base tracking-wide">
+                  {locations[currentMobileIndex].drive && <span>Drive: {locations[currentMobileIndex].drive}</span>}
+                  {locations[currentMobileIndex].distance && <span>Distance: {locations[currentMobileIndex].distance}</span>}
+                </div>
+              </motion.div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all z-10 backdrop-blur-sm"
+                aria-label="Previous location"
+              >
+                <ChevronLeft className="w-6 h-6 text-white" strokeWidth={1.5} />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all z-10 backdrop-blur-sm"
+                aria-label="Next location"
+              >
+                <ChevronRight className="w-6 h-6 text-white" strokeWidth={1.5} />
+              </button>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {locations.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentMobileIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentMobileIndex ? 'bg-[#F4F1EB] w-6' : 'bg-[#F4F1EB]/30'
+                  }`}
+                  aria-label={`Go to location ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Timeline */}
+          <div className="hidden md:flex flex-col space-y-8 md:space-y-12 lg:space-y-14">
             {locations.map((item, index) => {
               const isLeft = index % 2 === 0;
 
@@ -133,7 +205,7 @@ export default function LocationSection() {
                 <div key={index} className="relative w-full group">
                   
                   {/* Desktop Layout */}
-                  <div className="hidden md:flex w-full items-center relative z-10">
+                  <div className="flex w-full items-center relative z-10">
                     
                     {/* Pin on the center line */}
                     <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-8">
@@ -179,35 +251,6 @@ export default function LocationSection() {
                     </div>
 
                   </div>
-
-                  {/* Mobile Layout */}
-                  <div className="md:hidden flex flex-col items-center text-center space-y-3 px-4 relative z-10">
-                    <FadeIn delay={0.1}>
-                      <div className="w-full max-w-[260px] sm:max-w-[280px] bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-3">
-                        <Image 
-                          src={item.image} 
-                          alt={item.title} 
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
-                      <h3 className="text-4xl sm:text-[2.75rem] text-[#F4F1EB] mb-3 leading-[1.15]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '0.3px' }}>
-                        {item.title}
-                      </h3>
-                      <div className="flex flex-col items-center justify-center gap-0.5 text-[#F4F1EB] font-light text-sm sm:text-[15px] tracking-wide">
-                        {item.drive && <span>Drive: {item.drive}</span>}
-                        {item.distance && <span>Distance: {item.distance}</span>}
-                      </div>
-                    </FadeIn>
-                  </div>
-                  
-                  {/* Mobile Connector Line */}
-                  {index !== locations.length - 1 && (
-                    <div className="md:hidden w-[1px] h-16 bg-white/20 mx-auto mt-10 mb-4 relative z-0">
-                       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-4">
-                         <div className="w-3 h-3 rounded-full border-2 border-[#F4F1EB]"></div>
-                       </div>
-                    </div>
-                  )}
 
                 </div>
               );
