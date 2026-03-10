@@ -118,13 +118,13 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
         </FadeIn>
 
         {/* The Collection Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-7xl mx-auto">
           {VILLA_DATA.map((villa, index) => (
             <FadeIn key={villa.id} delay={index * 0.1}>
               <div className="flex flex-col h-full bg-[#E9E3DC] w-full">
                 
                 {/* Image Section */}
-                <div className="relative w-full aspect-square overflow-hidden mb-6">
+                <div className="relative w-full aspect-[3/4] overflow-hidden mb-4">
                   <img
                     src={villa.image}
                     alt={villa.title}
@@ -132,11 +132,11 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end">
+                  <div className="absolute bottom-0 left-0 w-full p-5 md:p-6 flex flex-col justify-end">
                     <span className="text-white text-sm md:text-base mb-1 tracking-widest" style={{ fontFamily: "'Manrope', sans-serif" }}>
                       {villa.id}
                     </span>
-                    <h3 className="text-white text-3xl md:text-4xl lg:text-5xl mb-3" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                    <h3 className="text-white text-3xl md:text-4xl lg:text-5xl mb-2" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
                       {villa.title}
                     </h3>
                     <p className="text-white/90 text-sm leading-relaxed max-w-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
@@ -150,20 +150,20 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
                   <div className="flex flex-col">
                     {villa.specs.map((spec, i) => (
                       <React.Fragment key={i}>
-                        <div className="flex justify-between items-center py-3">
-                          <span className="text-[#13133F] text-sm uppercase tracking-wider" style={{ fontFamily: "'Manrope', sans-serif" }}>{spec.label}</span>
-                          <span className="text-[#13133F] font-bold text-sm md:text-base" style={{ fontFamily: "'Manrope', sans-serif" }}>{spec.value}</span>
+                        <div className="flex justify-between items-center py-2">
+                          <span className="text-[#13133F] text-xs md:text-sm uppercase tracking-wider" style={{ fontFamily: "'Manrope', sans-serif" }}>{spec.label}</span>
+                          <span className="text-[#13133F] font-bold text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>{spec.value}</span>
                         </div>
                         <hr className="border-[#13133F]/20" />
                       </React.Fragment>
                     ))}
                   </div>
                   
-                  <div className="flex justify-between items-center py-4 mt-2">
-                    <span className="text-[#13133F] text-sm uppercase tracking-wider font-bold whitespace-pre-line" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                  <div className="flex justify-between items-center py-3 mt-1">
+                    <span className="text-[#13133F] text-xs md:text-sm uppercase tracking-wider font-bold whitespace-pre-line" style={{ fontFamily: "'Manrope', sans-serif" }}>
                       {villa.totalLabel}
                     </span>
-                    <span className="text-[#13133F] font-extrabold text-base md:text-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                    <span className="text-[#13133F] font-extrabold text-sm md:text-base" style={{ fontFamily: "'Manrope', sans-serif" }}>
                       {villa.totalValue}
                     </span>
                   </div>
