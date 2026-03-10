@@ -37,7 +37,7 @@ export default function GallerySection() {
     <section id="gallery" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC]">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <FadeIn>
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-6 md:mb-8">
             <h2 
               className="text-[#13133F] text-5xl md:text-6xl lg:text-7xl"
               style={{
@@ -59,7 +59,7 @@ export default function GallerySection() {
         </FadeIn>
         
         <FadeIn delay={0.2}>
-          <div className="flex items-center justify-center p-4 md:p-12">
+          <div className="flex items-center justify-center">
             <ImagePlayer
               images={galleryImages}
               interval={3000}
@@ -67,7 +67,7 @@ export default function GallerySection() {
                 <img
                   src={src}
                   alt="The Viceroy Estate Gallery"
-                  className="w-full h-auto max-h-[70vh] max-w-4xl object-cover inline-block align-middle rounded-lg shadow-2xl"
+                  className="w-full h-auto max-h-[80vh] max-w-6xl object-cover inline-block align-middle rounded-lg shadow-2xl"
                 />
               )}
             />
