@@ -57,7 +57,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
           <img 
             src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
             alt="The Viceroy Estate" 
-            className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28"
+            className="h-24 w-24 md:h-32 md:w-32 lg:h-[150px] lg:w-[150px]"
           />
         </button>
 
@@ -78,7 +78,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
         </div>
 
         {/* Spacer for balance on desktop */}
-        <div className="hidden lg:block w-20 md:w-24 lg:w-28"></div>
+        <div className="hidden lg:block w-24 md:w-32 lg:w-[150px]"></div>
 
         {/* Mobile Menu Button */}
         <button
