@@ -55,6 +55,14 @@ export default function AmenitiesSection({ amenities, isLoading }: AmenitiesSect
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#181a43] via-[#181a43]/95 to-[#181a43] z-0" />
       
+      {/* Background Image - Bottom Right */}
+      <div 
+        className="absolute bottom-0 right-0 w-1/2 md:w-1/3 lg:w-1/4 h-1/2 md:h-2/3 bg-no-repeat bg-contain bg-bottom bg-right opacity-20 z-0"
+        style={{
+          backgroundImage: 'url(https://static.wixstatic.com/media/cef78c_a516411178c242b6a03d7deecadca217~mv2.png)'
+        }}
+      />
+      
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <FadeIn className="text-center mb-16 md:mb-20">
           <h2 
