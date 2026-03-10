@@ -6,6 +6,8 @@ interface ScrollExpandMediaProps {
   mediaSrc: string;
   posterSrc?: string;
   bgImageSrc: string;
+  title?: string;
+  subtitle?: string;
   children?: ReactNode;
 }
 
@@ -14,6 +16,8 @@ const ScrollExpandMedia = ({
   mediaSrc,
   posterSrc,
   bgImageSrc,
+  title,
+  subtitle,
   children,
 }: ScrollExpandMediaProps) => {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
@@ -112,6 +116,7 @@ const ScrollExpandMedia = ({
 
   const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
   const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
+  const textOpacity = 1 - scrollProgress * 1.5; // Fade out text as video expands
 
   return (
     <div ref={sectionRef} className="transition-colors duration-700 ease-in-out overflow-x-hidden">
@@ -179,6 +184,25 @@ const ScrollExpandMedia = ({
                   </div>
                 )}
               </div>
+
+              {/* Text Overlay */}
+              {(title || subtitle) && (
+                <motion.div
+                  className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none"
+                  style={{ opacity: textOpacity }}
+                >
+                  {title && (
+                    <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-heading font-light tracking-wider mb-2">
+                      {title}
+                    </h1>
+                  )}
+                  {subtitle && (
+                    <h2 className="text-white text-4xl md:text-5xl lg:text-7xl font-heading font-light tracking-wide">
+                      {subtitle}
+                    </h2>
+                  )}
+                </motion.div>
+              )}
             </div>
 
             <motion.section

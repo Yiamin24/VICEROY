@@ -7,7 +7,9 @@ export default function HeroSection() {
       <ScrollExpandMedia
         mediaType="video"
         mediaSrc="https://video.wixstatic.com/video/cef78c_892b71b778024695832d2cb19a52e6c8/1080p/mp4/file.mp4"
-        bgImageSrc="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1920&auto=format&fit=crop"
+        bgImageSrc="https://static.wixstatic.com/media/cef78c_3872c095e81b408fb19446a87c77f6a6~mv2.jpg"
+        title="Welcome to"
+        subtitle="The Viceroy Estate"
       >
         {/* Content that appears after video expands */}
       </ScrollExpandMedia>
