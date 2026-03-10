@@ -9,7 +9,7 @@ export default function LuxurySection() {
     offset: ["start end", "end start"]
   });
 
-  // Parallax effect for butterfly
+  // Parallax butterfly movement
   const butterflyY = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
@@ -29,9 +29,9 @@ export default function LuxurySection() {
             style={{
               fontFamily: '"Cormorant Garamond", serif',
               fontWeight: 300,
-              letterSpacing: "-2px",
-              lineHeight: 1.1,
-              fontSize: "clamp(3.5rem, 8vw, 10rem)"
+              letterSpacing: "-2.5px",
+              lineHeight: 1.05,
+              fontSize: "clamp(5rem, 11vw, 13rem)"
             }}
           >
             Luxury living in the<br />
@@ -50,46 +50,23 @@ export default function LuxurySection() {
             />
           </motion.div>
 
-          {/* Scroll to Top Button */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="absolute -bottom-16 right-0 md:-bottom-20 md:right-8 lg:right-16 w-12 h-12 md:w-14 md:h-14 bg-black rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
-            aria-label="Scroll to top"
-          >
-            <svg
-              className="w-5 h-5 md:w-6 md:h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 10l7-7m0 0l7 7m-7-7v18"
-              />
-            </svg>
-          </button>
-
         </div>
 
-        {/* Content Section */}
+        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-6">
 
-            {/* Description */}
             <p
               className="text-[#13133F] text-base md:text-lg leading-relaxed"
               style={{
                 fontFamily: "'Manrope', sans-serif"
               }}
             >
-              Quietly commanding its place atop a storied ridge in the Shivalik
-              Hills, The Viceroy Estate is an intimate collection of 14
-              handcrafted villas – each an enduring statement of heritage and
-              refinement.
+              Quietly commanding its place atop a storied ridge in the Shivalik Hills,
+              The Viceroy Estate is an intimate collection of 14 handcrafted villas –
+              each an enduring statement of heritage and refinement.
             </p>
 
             {/* Video */}
@@ -106,7 +83,7 @@ export default function LuxurySection() {
 
           </div>
 
-          {/* Right Column */}
+          {/* Right Column Image */}
           <div className="lg:col-span-7">
             <div className="w-full aspect-[4/3] overflow-hidden">
               <img
@@ -118,6 +95,7 @@ export default function LuxurySection() {
           </div>
 
         </div>
+
       </div>
     </section>
   );
