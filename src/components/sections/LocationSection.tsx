@@ -111,7 +111,10 @@ export default function LocationSection() {
             >
               Gateway to comfort<br/>&amp; Exploration
             </h2>
-            <p className="text-[#F4F1EB]/80 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mt-4 md:mt-8 font-medium max-w-4xl mx-auto">
+            <p 
+              className="text-[#F4F1EB]/80 text-base md:text-lg leading-relaxed mt-4 md:mt-8 max-w-4xl mx-auto"
+              style={{ fontFamily: "'Manrope', sans-serif" }}
+            >
               The Viceroy Estate boasts a prime location that seamlessly connects residents to essential amenities and key destinations. For travelers, easy access to Shimla and Chandigarh airports facilitates seamless journeys to and from major cities and international destinations. Within reach are reputable schools and healthcare facilities and convenience stores, ensuring convenience and peace of mind for families. Additionally, the estate's proximity to temples, shrines and heritage parks offers residents opportunities for spiritual retreats and cultural exploration, enriching their lifestyle with diverse experiences amidst the serene beauty of the Shivalik Hills.
             </p>
           </div>
