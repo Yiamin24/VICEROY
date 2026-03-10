@@ -88,33 +88,33 @@ const CustomPin = () => (
 
 export default function LocationSection() {
   return (
-    <section id="location" className="py-12 md:py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="location" className="py-16 md:py-24 lg:py-32 bg-[#1A1A1A]">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
         
         {/* Header Section */}
         <FadeIn>
-          <div className="flex flex-col items-center text-center space-y-4 md:space-y-6 pt-6 md:pt-12 pb-12 md:pb-24 max-w-5xl mx-auto">
+          <div className="flex flex-col items-center text-center space-y-4 md:space-y-6 pt-8 md:pt-12 pb-16 md:pb-24 max-w-5xl mx-auto">
             <Image 
               src="https://static.wixstatic.com/media/cef78c_be5f8e9d983145789692bcd923e400d4~mv2.png" 
               alt="Map Icon" 
-              className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-2 md:mb-4 object-contain"
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 mb-2 md:mb-4 object-contain"
             />
             <h2 
-              className="text-[#F4F1EB] text-3xl sm:text-4xl md:text-5xl lg:text-7xl leading-tight px-4"
+              className="text-[#F4F1EB] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight"
               style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '-1px' }}
             >
               Gateway to comfort<br/>&amp; Exploration
             </h2>
-            <p className="text-[#F4F1EB]/80 text-base sm:text-lg md:text-xl leading-relaxed mt-4 md:mt-8 font-medium max-w-4xl mx-auto px-4">
+            <p className="text-[#F4F1EB]/80 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mt-4 md:mt-8 font-medium max-w-4xl mx-auto">
               The Viceroy Estate boasts a prime location that seamlessly connects residents to essential amenities and key destinations. For travelers, easy access to Shimla and Chandigarh airports facilitates seamless journeys to and from major cities and international destinations. Within reach are reputable schools and healthcare facilities and convenience stores, ensuring convenience and peace of mind for families. Additionally, the estate's proximity to temples, shrines and heritage parks offers residents opportunities for spiritual retreats and cultural exploration, enriching their lifestyle with diverse experiences amidst the serene beauty of the Shivalik Hills.
             </p>
           </div>
         </FadeIn>
 
         {/* Timeline Section */}
-        <div className="relative w-full max-w-6xl mx-auto mt-4 md:mt-8">
+        <div className="relative w-full max-w-7xl mx-auto mt-8">
           {/* Center Line for Desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
 
           <div className="flex flex-col space-y-16 md:space-y-24 lg:space-y-32">
             {locations.map((item, index) => {
@@ -124,93 +124,55 @@ export default function LocationSection() {
                 <div key={index} className="relative w-full group">
                   
                   {/* Desktop Layout */}
-                  <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-12 w-full items-center relative z-10">
+                  <div className="hidden md:flex w-full items-center relative z-10">
                     
                     {/* Pin on the center line */}
-                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-8 z-20">
+                    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-8">
                       <CustomPin />
                     </div>
 
-                    {isLeft ? (
-                      <>
-                        {/* Left Side - Text and Image */}
-                        <FadeIn delay={0.1}>
-                          <div className="flex items-center justify-end gap-6 xl:gap-8 pr-8 xl:pr-12">
-                            {/* Text Content */}
-                            <div className="flex flex-col justify-center text-left max-w-xs">
-                              <h3 className="text-3xl xl:text-4xl 2xl:text-5xl text-[#F4F1EB] mb-3" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
-                                {item.title}
-                              </h3>
-                              {item.drive && (
-                                <p className="text-[#F4F1EB] font-medium text-base xl:text-lg tracking-wide mb-1">
-                                  Drive: {item.drive}
-                                </p>
-                              )}
-                              {item.distance && (
-                                <p className="text-[#F4F1EB] font-medium text-base xl:text-lg tracking-wide">
-                                  Distance: {item.distance}
-                                </p>
-                              )}
-                            </div>
+                    <div className={`w-1/2 flex items-center ${isLeft ? 'justify-end pr-8 lg:pr-16' : 'absolute right-0 justify-start pl-8 lg:pl-16'}`}>
+                      <FadeIn delay={0.1}>
+                        <div className={`flex items-center gap-6 lg:gap-8 xl:gap-12 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
+                          
+                          {/* Text Content */}
+                          <div className={`flex flex-col justify-center ${isLeft ? 'text-right' : 'text-left'}`}>
+                            <h3 className="text-3xl lg:text-4xl xl:text-5xl text-[#F4F1EB] mb-3 lg:mb-4 whitespace-nowrap" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                              {item.title}
+                            </h3>
+                            {item.drive && (
+                              <p className="text-[#F4F1EB] font-medium text-base lg:text-lg tracking-wide mb-1">
+                                Drive: {item.drive}
+                              </p>
+                            )}
+                            {item.distance && (
+                              <p className="text-[#F4F1EB] font-medium text-base lg:text-lg tracking-wide">
+                                Distance: {item.distance}
+                              </p>
+                            )}
+                          </div>
 
-                            {/* Image Box */}
-                            <div className="w-48 xl:w-56 2xl:w-64 flex-shrink-0">
-                              <div className="relative w-full bg-[#2A2A2A] overflow-hidden shadow-2xl">
-                                <Image 
-                                  src={item.image} 
-                                  alt={item.title} 
-                                  className="w-full h-auto object-contain transform transition-transform duration-700 group-hover:scale-105"
-                                />
-                              </div>
+                          {/* Image Box */}
+                          <div className="w-40 md:w-48 lg:w-56 xl:w-64 flex-shrink-0">
+                            <div className="relative w-full bg-[#2A2A2A] overflow-hidden shadow-2xl">
+                              <Image 
+                                src={item.image} 
+                                alt={item.title} 
+                                className="w-full h-auto object-contain transform transition-transform duration-700 group-hover:scale-105"
+                              />
                             </div>
                           </div>
-                        </FadeIn>
-                        <div></div>
-                      </>
-                    ) : (
-                      <>
-                        <div></div>
-                        {/* Right Side - Image and Text */}
-                        <FadeIn delay={0.1}>
-                          <div className="flex items-center justify-start gap-6 xl:gap-8 pl-8 xl:pl-12">
-                            {/* Image Box */}
-                            <div className="w-48 xl:w-56 2xl:w-64 flex-shrink-0">
-                              <div className="relative w-full bg-[#2A2A2A] overflow-hidden shadow-2xl">
-                                <Image 
-                                  src={item.image} 
-                                  alt={item.title} 
-                                  className="w-full h-auto object-contain transform transition-transform duration-700 group-hover:scale-105"
-                                />
-                              </div>
-                            </div>
-
-                            {/* Text Content */}
-                            <div className="flex flex-col justify-center text-left max-w-xs">
-                              <h3 className="text-3xl xl:text-4xl 2xl:text-5xl text-[#F4F1EB] mb-3" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
-                                {item.title}
-                              </h3>
-                              {item.drive && (
-                                <p className="text-[#F4F1EB] font-medium text-base xl:text-lg tracking-wide mb-1">
-                                  Drive: {item.drive}
-                                </p>
-                              )}
-                              {item.distance && (
-                                <p className="text-[#F4F1EB] font-medium text-base xl:text-lg tracking-wide">
-                                  Distance: {item.distance}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        </FadeIn>
-                      </>
-                    )}
+                          
+                        </div>
+                      </FadeIn>
+                    </div>
 
                   </div>
 
-                  {/* Mobile & Tablet Layout */}
-                  <div className="lg:hidden flex flex-col items-center text-center space-y-4 px-4 relative z-10">
+                  {/* Mobile Layout */}
+                  <div className="md:hidden flex flex-col items-center text-center space-y-4 px-4 relative z-10">
                     <FadeIn delay={0.1}>
-                      <div className="w-full max-w-xs sm:max-w-sm bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-4">
+                      <div className="w-full max-w-[280px] sm:max-w-xs bg-[#2A2A2A] overflow-hidden shadow-2xl mx-auto mb-4">
                         <Image 
                           src={item.image} 
                           alt={item.title} 
@@ -220,7 +182,7 @@ export default function LocationSection() {
                       <h3 className="text-3xl sm:text-4xl text-[#F4F1EB] mb-2" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
                         {item.title}
                       </h3>
-                      <div className="flex flex-col items-center justify-center gap-1 text-[#F4F1EB] font-medium text-base sm:text-lg tracking-wide">
+                      <div className="flex flex-col items-center justify-center gap-1 text-[#F4F1EB] font-medium text-base tracking-wide">
                         {item.drive && <span>Drive: {item.drive}</span>}
                         {item.distance && <span>Distance: {item.distance}</span>}
                       </div>
@@ -229,9 +191,9 @@ export default function LocationSection() {
                   
                   {/* Mobile Connector Line */}
                   {index !== locations.length - 1 && (
-                    <div className="lg:hidden w-[1px] h-16 md:h-20 bg-white/20 mx-auto mt-8 md:mt-12 mb-4 relative z-0">
+                    <div className="md:hidden w-[1px] h-16 bg-white/20 mx-auto mt-10 mb-4 relative z-0">
                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] py-4">
-                         <div className="w-3 h-3 md:w-4 md:h-4 rounded-full border-2 border-[#F4F1EB]"></div>
+                         <div className="w-3 h-3 rounded-full border-2 border-[#F4F1EB]"></div>
                        </div>
                     </div>
                   )}
