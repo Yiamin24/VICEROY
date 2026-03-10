@@ -36,10 +36,10 @@ export default function StorySection() {
   };
 
   return (
-    <section id="story" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC]">
+    <section id="story" className="py-12 md:py-16 lg:py-20 bg-[#E9E3DC]">
       <div className="container mx-auto px-4 max-w-6xl">
         <FadeIn>
-          <div className="flex flex-col items-center text-center space-y-12">
+          <div className="flex flex-col items-center text-center space-y-8">
             {/* SVG Icon with line */}
             <div className="flex flex-col items-center">
               <div className="h-16 w-[1px] bg-[#13133F] mb-6"></div>
@@ -60,7 +60,7 @@ export default function StorySection() {
             </p>
 
             {/* Image Slider */}
-            <div className="w-full mt-16 relative">
+            <div className="w-full mt-8 relative">
               <div className="relative w-full aspect-[16/9] overflow-hidden">
                 <motion.img
                   key={currentSlide}
