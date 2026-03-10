@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const fadeInUp = {
@@ -18,25 +18,21 @@ const FadeIn: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 export default function LuxurySection() {
-  const { scrollY } = useScroll();
-  const [elementTop, setElementTop] = useState(0);
-  
-  useEffect(() => {
-    const element = document.getElementById('luxury-section');
-    if (element) {
-      setElementTop(element.offsetTop);
-    }
-  }, []);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
 
   // Parallax effect for butterfly - moves up and down as you scroll
-  const butterflyY = useTransform(
-    scrollY,
-    [elementTop - 500, elementTop + 500],
-    [-30, 30]
-  );
+  const butterflyY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section id="luxury-section" className="py-24 md:py-32 bg-[#E9E3DC] relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      id="luxury" 
+      className="py-24 md:py-32 bg-[#E9E3DC] relative overflow-hidden"
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         <FadeIn>
           <div className="flex flex-col items-start text-left space-y-12 relative">
