@@ -16,7 +16,7 @@ export default function LuxurySection() {
     <section
       ref={sectionRef}
       id="luxury"
-      className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC] relative overflow-hidden"
+      className="py-12 md:py-14 lg:py-16 bg-[#E9E3DC] relative overflow-hidden"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-16">
 

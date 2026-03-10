@@ -94,12 +94,12 @@ const CustomPin = () => (
 
 export default function LocationSection() {
   return (
-    <section id="location" className="py-20 md:py-24 lg:py-28 bg-[#1A1A1A]">
+    <section id="location" className="py-12 md:py-14 lg:py-16 bg-[#1A1A1A]">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         
         {/* Header Section */}
         <FadeIn>
-          <div className="flex flex-col items-center text-center space-y-4 md:space-y-6 pt-8 md:pt-12 pb-16 md:pb-24 max-w-5xl mx-auto">
+          <div className="flex flex-col items-center text-center space-y-4 md:space-y-6 pt-4 md:pt-6 pb-10 md:pb-14 max-w-5xl mx-auto">
             <Image 
               src="https://static.wixstatic.com/media/cef78c_be5f8e9d983145789692bcd923e400d4~mv2.png" 
               alt="Map Icon" 
@@ -125,7 +125,7 @@ export default function LocationSection() {
           {/* Center Line for Desktop */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 transform -translate-x-1/2 z-0"></div>
 
-          <div className="flex flex-col space-y-12 md:space-y-20 lg:space-y-24">
+          <div className="flex flex-col space-y-8 md:space-y-12 lg:space-y-14">
             {locations.map((item, index) => {
               const isLeft = index % 2 === 0;
 

@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-[#1A1A1A] text-white relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
           {/* Logo & Brand - Left */}
           <div className="md:col-span-3 flex flex-col items-center md:items-start">
@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs">
+        <div className="border-t border-white/10 py-3 flex flex-col md:flex-row justify-between items-center gap-2 text-xs">
           <p 
             className="text-white/50"
             style={{ fontFamily: "'Manrope', sans-serif" }}

@@ -71,11 +71,11 @@ interface VillasSectionProps {
 
 export default function VillasSection({ villas, isLoading }: VillasSectionProps) {
   return (
-    <section id="villas" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC]">
+    <section id="villas" className="py-12 md:py-14 lg:py-16 bg-[#E9E3DC]">
       <div className="container mx-auto px-4">
         
         {/* Slow Down & Reconnect Section */}
-        <FadeIn className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-20 md:mb-28">
+        <FadeIn className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto mb-12 md:mb-16">
           <Image src="https://static.wixstatic.com/media/cef78c_5804c42dacde4d0e99fd7ed02970c941~mv2.png" alt="Star" className="w-16 h-16 md:w-20 md:h-20 mb-6 object-contain" />
           <span 
             className="text-[#13133F] uppercase tracking-[0.2em] text-sm md:text-base mb-6"
@@ -106,10 +106,10 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
             effortlessly with modern design sensibilities.
           </p>
           
-          <div className="w-[1px] h-24 bg-[#13133F]/30 mt-16 md:mt-24"></div>
+          <div className="w-[1px] h-16 bg-[#13133F]/30 mt-10 md:mt-12"></div>
         </FadeIn>
 
-        <FadeIn className="text-center mb-16 md:mb-20">
+        <FadeIn className="text-center mb-10 md:mb-12">
           <span className="text-[#13133F] uppercase tracking-[0.2em] text-sm mb-4 block" style={{ fontFamily: "'Manrope', sans-serif" }}>The Collection</span>
           <h2 className="text-[#13133F]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3rem)" }}>Our Signature Villas</h2>
         </FadeIn>
