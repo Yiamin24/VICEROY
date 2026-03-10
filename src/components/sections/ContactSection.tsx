@@ -33,16 +33,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-24 lg:py-28 bg-[#181a43] relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#181a43] via-[#1a1c48] to-[#181a43]" />
-      
+    <section id="contact" className="py-20 md:py-24 lg:py-28 bg-[#E9E3DC] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12 md:mb-16">
               <h2 
-                className="text-white text-5xl md:text-6xl lg:text-7xl mb-4"
+                className="text-[#13133F] text-5xl md:text-6xl lg:text-7xl mb-4"
                 style={{
                   fontFamily: '"Cormorant Garamond", serif',
                   fontWeight: 300,
@@ -53,7 +50,7 @@ export default function ContactSection() {
                 Get in Touch
               </h2>
               <p 
-                className="text-white/70 text-base md:text-lg"
+                className="text-[#13133F]/70 text-base md:text-lg"
                 style={{ fontFamily: "'Manrope', sans-serif" }}
               >
                 We'd love to hear from you
@@ -64,14 +61,14 @@ export default function ContactSection() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Glassmorphism Form */}
             <FadeIn>
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 md:p-10 shadow-2xl">
+              <div className="bg-white/60 backdrop-blur-md border border-[#13133F]/10 rounded-2xl p-8 md:p-10 shadow-xl">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <Input
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:ring-white/20 h-12 rounded-lg"
+                      className="bg-white/80 border-[#13133F]/20 text-[#13133F] placeholder:text-[#13133F]/50 focus:border-[#13133F]/40 focus:ring-[#13133F]/20 h-12 rounded-lg"
                       style={{ fontFamily: "'Manrope', sans-serif" }}
                       required
                     />
@@ -82,7 +79,7 @@ export default function ContactSection() {
                       placeholder="Your Email"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:ring-white/20 h-12 rounded-lg"
+                      className="bg-white/80 border-[#13133F]/20 text-[#13133F] placeholder:text-[#13133F]/50 focus:border-[#13133F]/40 focus:ring-[#13133F]/20 h-12 rounded-lg"
                       style={{ fontFamily: "'Manrope', sans-serif" }}
                       required
                     />
@@ -93,7 +90,7 @@ export default function ContactSection() {
                       placeholder="Your Phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:ring-white/20 h-12 rounded-lg"
+                      className="bg-white/80 border-[#13133F]/20 text-[#13133F] placeholder:text-[#13133F]/50 focus:border-[#13133F]/40 focus:ring-[#13133F]/20 h-12 rounded-lg"
                       style={{ fontFamily: "'Manrope', sans-serif" }}
                     />
                   </div>
@@ -102,14 +99,14 @@ export default function ContactSection() {
                       placeholder="Your Message"
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:ring-white/20 min-h-[150px] rounded-lg resize-none"
+                      className="bg-white/80 border-[#13133F]/20 text-[#13133F] placeholder:text-[#13133F]/50 focus:border-[#13133F]/40 focus:ring-[#13133F]/20 min-h-[150px] rounded-lg resize-none"
                       style={{ fontFamily: "'Manrope', sans-serif" }}
                       required
                     />
                   </div>
                   <Button 
                     type="submit"
-                    className="w-full bg-white/20 hover:bg-white/30 text-white border border-white/30 h-12 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-[#13133F] hover:bg-[#13133F]/90 text-white h-12 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
                     style={{ fontFamily: "'Manrope', sans-serif" }}
                   >
                     <span>Send Message</span>
@@ -124,7 +121,7 @@ export default function ContactSection() {
               <div className="space-y-8">
                 <div>
                   <h3 
-                    className="text-white text-3xl md:text-4xl mb-6"
+                    className="text-[#13133F] text-3xl md:text-4xl mb-6"
                     style={{
                       fontFamily: '"Cormorant Garamond", serif',
                       fontWeight: 300,
@@ -135,18 +132,18 @@ export default function ContactSection() {
                   </h3>
                   <div className="space-y-6">
                     <div className="flex items-start gap-4 group">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
-                        <MapPin className="h-5 w-5 text-white" />
+                      <div className="w-12 h-12 rounded-full bg-[#13133F]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#13133F]/20 transition-colors">
+                        <MapPin className="h-5 w-5 text-[#13133F]" />
                       </div>
                       <div>
                         <p 
-                          className="text-white font-medium text-lg mb-1"
+                          className="text-[#13133F] font-medium text-lg mb-1"
                           style={{ fontFamily: "'Manrope', sans-serif" }}
                         >
                           Location
                         </p>
                         <p 
-                          className="text-white/70"
+                          className="text-[#13133F]/70"
                           style={{ fontFamily: "'Manrope', sans-serif" }}
                         >
                           Dhar, Himachal Pradesh
@@ -154,18 +151,18 @@ export default function ContactSection() {
                       </div>
                     </div>
                     <div className="flex items-start gap-4 group">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
-                        <Mail className="h-5 w-5 text-white" />
+                      <div className="w-12 h-12 rounded-full bg-[#13133F]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#13133F]/20 transition-colors">
+                        <Mail className="h-5 w-5 text-[#13133F]" />
                       </div>
                       <div>
                         <p 
-                          className="text-white font-medium text-lg mb-1"
+                          className="text-[#13133F] font-medium text-lg mb-1"
                           style={{ fontFamily: "'Manrope', sans-serif" }}
                         >
                           Email
                         </p>
                         <p 
-                          className="text-white/70"
+                          className="text-[#13133F]/70"
                           style={{ fontFamily: "'Manrope', sans-serif" }}
                         >
                           hello@theviceroyestate.com
@@ -173,18 +170,18 @@ export default function ContactSection() {
                       </div>
                     </div>
                     <div className="flex items-start gap-4 group">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
-                        <Phone className="h-5 w-5 text-white" />
+                      <div className="w-12 h-12 rounded-full bg-[#13133F]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#13133F]/20 transition-colors">
+                        <Phone className="h-5 w-5 text-[#13133F]" />
                       </div>
                       <div>
                         <p 
-                          className="text-white font-medium text-lg mb-1"
+                          className="text-[#13133F] font-medium text-lg mb-1"
                           style={{ fontFamily: "'Manrope', sans-serif" }}
                         >
                           Phone
                         </p>
                         <p 
-                          className="text-white/70"
+                          className="text-[#13133F]/70"
                           style={{ fontFamily: "'Manrope', sans-serif" }}
                         >
                           +91 XXXX XXXXXX
@@ -194,9 +191,9 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <div className="pt-8 border-t border-white/10">
+                <div className="pt-8 border-t border-[#13133F]/10">
                   <h3 
-                    className="text-white text-2xl mb-6"
+                    className="text-[#13133F] text-2xl mb-6"
                     style={{
                       fontFamily: '"Cormorant Garamond", serif',
                       fontWeight: 300,
@@ -208,21 +205,21 @@ export default function ContactSection() {
                   <div className="flex gap-4">
                     <a 
                       href="#" 
-                      className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                      className="w-12 h-12 rounded-full bg-[#13133F]/10 hover:bg-[#13133F]/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
                     >
-                      <Instagram className="h-5 w-5 text-white" />
+                      <Instagram className="h-5 w-5 text-[#13133F]" />
                     </a>
                     <a 
                       href="#" 
-                      className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                      className="w-12 h-12 rounded-full bg-[#13133F]/10 hover:bg-[#13133F]/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
                     >
-                      <Youtube className="h-5 w-5 text-white" />
+                      <Youtube className="h-5 w-5 text-[#13133F]" />
                     </a>
                     <a 
                       href="#" 
-                      className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                      className="w-12 h-12 rounded-full bg-[#13133F]/10 hover:bg-[#13133F]/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
                     >
-                      <Linkedin className="h-5 w-5 text-white" />
+                      <Linkedin className="h-5 w-5 text-[#13133F]" />
                     </a>
                   </div>
                 </div>
