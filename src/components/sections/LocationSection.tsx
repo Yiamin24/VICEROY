@@ -61,20 +61,26 @@ const locations = [
   },
   {
     title: "Kalka Railway Station",
-    drive: "1 Hr 30 Min",
+    drive: "1Hr 30 Min",
     distance: "60 Km",
     image: "https://static.wixstatic.com/media/cef78c_266c481ced8d4517bd3c0bb27e350732~mv2.png"
   },
   {
     title: "National Grocer",
+    drive: "35 Min",
+    distance: "18 Km",
     image: "https://static.wixstatic.com/media/cef78c_0505ec2df8824d4da35c4afeda9fbe48~mv2.png"
   },
   {
-    title: "Mohan Shakti Heritage park",
+    title: "Mohan Shakti Heritage Park",
+    drive: "48 Min",
+    distance: "21 Km",
     image: "https://static.wixstatic.com/media/cef78c_26f271d431414041b5790992e6d4487a~mv2.png"
   },
   {
     title: "Menri Monastery",
+    drive: "1 Hr",
+    distance: "32 Km",
     image: "https://static.wixstatic.com/media/cef78c_20c01af51ada4f57aacaca3df7bb0278~mv2.jpg"
   }
 ];
@@ -136,20 +142,22 @@ export default function LocationSection() {
                         <div className={`flex items-center gap-6 lg:gap-8 xl:gap-12 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
                           
                           {/* Text Content */}
-                          <div className={`flex flex-col justify-center max-w-[200px] lg:max-w-[240px] xl:max-w-[280px] ${isLeft ? 'text-right' : 'text-left'}`}>
-                            <h3 className="text-3xl lg:text-4xl xl:text-5xl text-[#F4F1EB] mb-3 lg:mb-4 break-words" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                          <div className={`flex flex-col justify-center max-w-[240px] lg:max-w-[280px] xl:max-w-[320px] ${isLeft ? 'text-right' : 'text-left'}`}>
+                            <h3 className="text-5xl lg:text-6xl xl:text-7xl text-[#F4F1EB] mb-5 lg:mb-6 leading-[1.1]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '1px' }}>
                               {item.title}
                             </h3>
-                            {item.drive && (
-                              <p className="text-[#F4F1EB] font-medium text-base lg:text-lg tracking-wide mb-1">
-                                Drive: {item.drive}
-                              </p>
-                            )}
-                            {item.distance && (
-                              <p className="text-[#F4F1EB] font-medium text-base lg:text-lg tracking-wide">
-                                Distance: {item.distance}
-                              </p>
-                            )}
+                            <div className="space-y-0.5">
+                              {item.drive && (
+                                <p className="text-[#F4F1EB] font-light text-base lg:text-lg tracking-wide">
+                                  Drive: {item.drive}
+                                </p>
+                              )}
+                              {item.distance && (
+                                <p className="text-[#F4F1EB] font-light text-base lg:text-lg tracking-wide">
+                                  Distance: {item.distance}
+                                </p>
+                              )}
+                            </div>
                           </div>
 
                           {/* Image Box */}
@@ -179,10 +187,10 @@ export default function LocationSection() {
                           className="w-full h-auto object-contain"
                         />
                       </div>
-                      <h3 className="text-3xl sm:text-4xl text-[#F4F1EB] mb-2" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                      <h3 className="text-5xl sm:text-6xl text-[#F4F1EB] mb-5 leading-[1.1]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, letterSpacing: '1px' }}>
                         {item.title}
                       </h3>
-                      <div className="flex flex-col items-center justify-center gap-1 text-[#F4F1EB] font-medium text-base tracking-wide">
+                      <div className="flex flex-col items-center justify-center gap-0.5 text-[#F4F1EB] font-light text-base sm:text-lg tracking-wide">
                         {item.drive && <span>Drive: {item.drive}</span>}
                         {item.distance && <span>Distance: {item.distance}</span>}
                       </div>
