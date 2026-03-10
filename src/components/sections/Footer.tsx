@@ -1,116 +1,87 @@
 import React from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#E9E3DC] text-[#13133F] relative overflow-hidden">
+    <footer className="bg-[#1A1A1A] text-white relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Main Footer Content */}
-        <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 border-b border-[#13133F]/10">
+        <div className="py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <h3 
-              className="text-3xl md:text-4xl text-[#13133F] mb-4"
-              style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontWeight: 300,
-                letterSpacing: '0.5px'
-              }}
-            >
-              The Viceroy Estate
-            </h3>
+          {/* Logo & Brand - Left */}
+          <div className="md:col-span-3 flex flex-col items-center md:items-start">
+            <img 
+              src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
+              alt="The Viceroy Estate" 
+              className="h-20 w-20 md:h-24 md:w-24 mb-3"
+            />
             <p 
-              className="text-[#13133F]/70 text-sm md:text-base leading-relaxed max-w-md"
+              className="text-white/60 text-xs text-center md:text-left max-w-xs"
               style={{ fontFamily: "'Manrope', sans-serif" }}
             >
-              An intimate collection of handcrafted villas nestled in the serene beauty of the Shivalik Hills, redefining luxury living.
+              Redefining luxury living in the Shivalik Hills
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 
-              className="text-xl text-[#13133F] mb-4"
-              style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontWeight: 300
-              }}
-            >
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
-              {['Home', 'Villas', 'Amenities', 'Location', 'Gallery', 'Contact'].map((link) => (
-                <li key={link}>
-                  <a 
-                    href={`#${link.toLowerCase()}`}
-                    className="text-[#13133F]/70 hover:text-[#13133F] transition-colors text-sm md:text-base"
-                    style={{ fontFamily: "'Manrope', sans-serif" }}
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Quick Links - Center */}
+          <div className="md:col-span-5 flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {['Home', 'Villas', 'Amenities', 'Location', 'Gallery', 'Contact'].map((link) => (
+              <a 
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                className="text-white/70 hover:text-white transition-colors text-sm"
+                style={{ fontFamily: "'Manrope', sans-serif" }}
+              >
+                {link}
+              </a>
+            ))}
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 
-              className="text-xl text-[#13133F] mb-4"
-              style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontWeight: 300
-              }}
+          {/* Social & Contact - Right */}
+          <div className="md:col-span-4 flex flex-col items-center md:items-end gap-4">
+            <div className="flex gap-3">
+              <a 
+                href="#" 
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+              >
+                <Instagram className="h-4 w-4 text-white" />
+              </a>
+              <a 
+                href="#" 
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+              >
+                <Youtube className="h-4 w-4 text-white" />
+              </a>
+              <a 
+                href="#" 
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+              >
+                <Linkedin className="h-4 w-4 text-white" />
+              </a>
+            </div>
+            <a 
+              href="mailto:hello@theviceroyestate.com"
+              className="text-white/70 hover:text-white transition-colors text-sm"
+              style={{ fontFamily: "'Manrope', sans-serif" }}
             >
-              Contact
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#13133F]/70 mt-1 flex-shrink-0" />
-                <span 
-                  className="text-[#13133F]/70 text-sm"
-                  style={{ fontFamily: "'Manrope', sans-serif" }}
-                >
-                  Dhar, Himachal Pradesh
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#13133F]/70 mt-1 flex-shrink-0" />
-                <a 
-                  href="mailto:hello@theviceroyestate.com"
-                  className="text-[#13133F]/70 hover:text-[#13133F] transition-colors text-sm"
-                  style={{ fontFamily: "'Manrope', sans-serif" }}
-                >
-                  hello@theviceroyestate.com
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#13133F]/70 mt-1 flex-shrink-0" />
-                <span 
-                  className="text-[#13133F]/70 text-sm"
-                  style={{ fontFamily: "'Manrope', sans-serif" }}
-                >
-                  +91 XXXX XXXXXX
-                </span>
-              </li>
-            </ul>
+              hello@theviceroyestate.com
+            </a>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 md:py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs">
           <p 
-            className="text-[#13133F]/60 text-xs md:text-sm text-center md:text-left"
-            style={{ fontFamily: "'Manrope', sans-serif" }}
-          >
-            RERA: HPRERASOL2024118/P
-          </p>
-          <p 
-            className="text-[#13133F]/60 text-xs md:text-sm text-center md:text-right"
+            className="text-white/50"
             style={{ fontFamily: "'Manrope', sans-serif" }}
           >
             © 2026 The Viceroy Estate. All Rights Reserved.
+          </p>
+          <p 
+            className="text-white/50"
+            style={{ fontFamily: "'Manrope', sans-serif" }}
+          >
+            RERA: HPRERASOL2024118/P
           </p>
         </div>
       </div>
