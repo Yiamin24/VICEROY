@@ -9,21 +9,19 @@ export default function LuxurySection() {
     offset: ["start end", "end start"]
   });
 
-  // Parallax butterfly movement
   const butterflyY = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
     <section
       ref={sectionRef}
       id="luxury"
-      className="py-20 md:py-32 lg:py-40 bg-[#E9E3DC] relative overflow-hidden"
+      className="pb-20 md:pb-32 lg:pb-40 bg-[#E9E3DC] relative overflow-hidden"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Heading Section */}
-        <div className="relative mb-20 md:mb-32">
+        <div className="relative mb-4 md:mb-6">
 
-          {/* Main Heading */}
           <h2
             className="text-[#13133F]"
             style={{
@@ -38,9 +36,9 @@ export default function LuxurySection() {
             lap of Nature
           </h2>
 
-          {/* Parallax Butterfly */}
+          {/* Butterfly */}
           <motion.div
-            className="absolute -top-4 right-0 md:-top-8 md:right-8 lg:-top-12 lg:right-16"
+            className="absolute -top-24 right-0 md:-top-32 md:right-8 lg:-top-40 lg:right-16"
             style={{ y: butterflyY }}
           >
             <img
@@ -55,21 +53,18 @@ export default function LuxurySection() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
-          {/* Left Column */}
+          {/* Left */}
           <div className="lg:col-span-5 space-y-6">
 
             <p
               className="text-[#13133F] text-base md:text-lg leading-relaxed"
-              style={{
-                fontFamily: "'Manrope', sans-serif"
-              }}
+              style={{ fontFamily: "'Manrope', sans-serif" }}
             >
               Quietly commanding its place atop a storied ridge in the Shivalik Hills,
               The Viceroy Estate is an intimate collection of 14 handcrafted villas –
               each an enduring statement of heritage and refinement.
             </p>
 
-            {/* Video */}
             <div className="w-full aspect-video overflow-hidden">
               <video
                 src="https://video.wixstatic.com/video/cef78c_97a3d2d47c1d4506a16749a045df7d7a/1080p/mp4/file.mp4"
@@ -83,7 +78,7 @@ export default function LuxurySection() {
 
           </div>
 
-          {/* Right Column Image */}
+          {/* Right Image */}
           <div className="lg:col-span-7">
             <div className="w-full aspect-[4/3] overflow-hidden">
               <img
