@@ -67,9 +67,10 @@ const VILLA_DATA = [
 interface VillasSectionProps {
   villas: Villas[];
   isLoading: boolean;
+  onOpenForm: () => void;
 }
 
-export default function VillasSection({ villas, isLoading }: VillasSectionProps) {
+export default function VillasSection({ villas, isLoading, onOpenForm }: VillasSectionProps) {
   return (
     <section id="villas" className="py-12 md:py-14 lg:py-16 bg-[#E9E3DC]">
       <div className="container mx-auto px-4">
@@ -118,7 +119,13 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-7xl mx-auto">
           {VILLA_DATA.map((villa, index) => (
             <FadeIn key={villa.id} delay={index * 0.1}>
-              <div className="flex flex-col h-full bg-[#E9E3DC] w-full">
+              <div 
+                className="flex flex-col h-full bg-[#E9E3DC] w-full cursor-pointer transition-transform hover:scale-[1.02] duration-300"
+                onClick={onOpenForm}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && onOpenForm()}
+              >
                 
                 {/* Image Section */}
                 <div className="relative w-full aspect-[3/4] overflow-hidden mb-4">

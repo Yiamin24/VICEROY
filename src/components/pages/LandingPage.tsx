@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { MessageSquare } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { Villas, Amenities } from '@/entities';
 
@@ -13,11 +14,22 @@ import LocationSection from '@/components/sections/LocationSection';
 import GallerySection from '@/components/sections/GallerySection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
+import PopupForm from '@/components/ui/popup-form';
 
 export default function LandingPage() {
   const [villas, setVillas] = useState<Villas[]>([]);
   const [amenities, setAmenities] = useState<Amenities[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  // Open popup form on page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFormOpen(true);
+    }, 2000); // Open after 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const loadData = async () => {
@@ -48,12 +60,24 @@ export default function LandingPage() {
       <HeroSection />
       <StorySection />
       <LuxurySection />
-      <VillasSection villas={villas} isLoading={isLoading} />
+      <VillasSection villas={villas} isLoading={isLoading} onOpenForm={() => setIsFormOpen(true)} />
       <AmenitiesSection amenities={amenities} isLoading={isLoading} />
       <LocationSection />
       <GallerySection />
       <ContactSection />
       <Footer />
+      
+      {/* Floating Contact Button */}
+      <button
+        onClick={() => setIsFormOpen(true)}
+        className="fixed bottom-6 right-6 z-[9998] w-14 h-14 bg-[#13133F] hover:bg-[#13133F]/90 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+        aria-label="Open contact form"
+      >
+        <MessageSquare className="w-6 h-6 group-hover:scale-110 transition-transform" />
+      </button>
+
+      {/* Popup Form */}
+      <PopupForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </div>
   );
 }
