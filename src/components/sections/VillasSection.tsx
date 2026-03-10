@@ -1,9 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Villas } from '@/entities';
-import { LoadingSpinner } from '@/components/ui/loading-spinner';
-import { Image } from '@/components/ui/image';
-
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -23,6 +20,48 @@ const FadeIn: React.FC<{ children: React.ReactNode; delay?: number; className?: 
     {children}
   </motion.div>
 );
+
+const VILLA_DATA = [
+  {
+    id: "01",
+    title: "Monarch Villas",
+    description: "At the zenith of The Viceroy Estate stand the regal Monarch Villas, exuding grandeur and opulence in every detail.",
+    image: "https://static.wixstatic.com/media/cef78c_9d6eb435157c47679701c334cb62fc17~mv2.jpg",
+    specs: [
+      { label: "GROUND FLOOR", value: "2238.75 sq.ft" },
+      { label: "FIRST FLOOR", value: "2043.33 sq.ft" },
+      { label: "SECOND FLOOR", value: "1528.70 sq.ft" },
+    ],
+    totalLabel: "TOTAL BUILT-UP\nAREA",
+    totalValue: "5810.79 sq.ft"
+  },
+  {
+    id: "02",
+    title: "Papillon Villas",
+    description: "Welcome to the Papillon Villas, where timeless elegance meets modern comfort in an enchanting setting.",
+    image: "https://static.wixstatic.com/media/cef78c_a6849ad188d640468c751a137bd97ccd~mv2.jpg",
+    specs: [
+      { label: "GROUND FLOOR", value: "2307.26 sq.ft" },
+      { label: "FIRST FLOOR", value: "2133.66 sq.ft" },
+      { label: "SECOND FLOOR", value: "1609.33 sq.ft" },
+    ],
+    totalLabel: "TOTAL BUILT-UP\nAREA",
+    totalValue: "6260.04 sq.ft"
+  },
+  {
+    id: "03",
+    title: "Mariposa Villas",
+    description: "Nestled among the tranquil surroundings of The Viceroy Estate, the Mariposa Villas exude a sense of serenity & sophistication.",
+    image: "https://static.wixstatic.com/media/cef78c_3aca53ce761a4e268d9ecdb790fbedf3~mv2.jpg",
+    specs: [
+      { label: "GROUND FLOOR", value: "2217.28 sq.ft" },
+      { label: "FIRST FLOOR", value: "2223.95 sq.ft" },
+      { label: "SECOND FLOOR", value: "1625.79 sq.ft" },
+    ],
+    totalLabel: "TOTAL BUILT-UP\nAREA",
+    totalValue: "6276.81 sq.ft"
+  }
+];
 
 interface VillasSectionProps {
   villas: Villas[];
@@ -78,44 +117,64 @@ export default function VillasSection({ villas, isLoading }: VillasSectionProps)
           <h2 className="text-[#13133F]" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3rem)" }}>Our Signature Villas</h2>
         </FadeIn>
 
-        {isLoading ? (
-          <div className="flex justify-center items-center h-64">
-            <LoadingSpinner className="text-primary w-8 h-8" />
-          </div>
-        ) : villas.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {villas.map((villa, index) => (
-              <FadeIn key={villa._id} delay={index * 0.1}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-                  {villa.mainImage ? (
-                    <Image
-                      src={villa.mainImage}
-                      alt={villa.villaName || 'Villa'}
-                      className="w-full h-64 object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-64 bg-lightBackground flex items-center justify-center">
-                      <span className="text-primary/50">No image available</span>
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-heading text-primary mb-3">{villa.villaName}</h3>
-                    <p className="text-primary/70 mb-4">
-                      {villa.description || "Experience timeless elegance and modern comfort."}
+        {/* The Collection Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {VILLA_DATA.map((villa, index) => (
+            <FadeIn key={villa.id} delay={index * 0.1}>
+              <div className="flex flex-col h-full bg-[#E9E3DC] w-full">
+                
+                {/* Image Section */}
+                <div className="relative w-full aspect-square overflow-hidden mb-6">
+                  <img
+                    src={villa.image}
+                    alt={villa.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end">
+                    <span className="text-white text-sm md:text-base mb-1 tracking-widest" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                      {villa.id}
+                    </span>
+                    <h3 className="text-white text-3xl md:text-4xl lg:text-5xl mb-3" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                      {villa.title}
+                    </h3>
+                    <p className="text-white/90 text-sm leading-relaxed max-w-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                      {villa.description}
                     </p>
-                    <div className="text-sm text-primary/60">
-                      <p>Total Area: 5810 sq.ft</p>
-                    </div>
                   </div>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20">
-            <p className="text-primary/60">The collection is currently being curated.</p>
-          </div>
-        )}
+
+                {/* Specs Section */}
+                <div className="flex flex-col px-1">
+                  <div className="flex flex-col">
+                    {villa.specs.map((spec, i) => (
+                      <React.Fragment key={i}>
+                        <div className="flex justify-between items-center py-3">
+                          <span className="text-[#13133F] text-sm uppercase tracking-wider" style={{ fontFamily: "'Manrope', sans-serif" }}>{spec.label}</span>
+                          <span className="text-[#13133F] font-bold text-sm md:text-base" style={{ fontFamily: "'Manrope', sans-serif" }}>{spec.value}</span>
+                        </div>
+                        <hr className="border-[#13133F]/20" />
+                      </React.Fragment>
+                    ))}
+                  </div>
+                  
+                  <div className="flex justify-between items-center py-4 mt-2">
+                    <span className="text-[#13133F] text-sm uppercase tracking-wider font-bold whitespace-pre-line" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                      {villa.totalLabel}
+                    </span>
+                    <span className="text-[#13133F] font-extrabold text-base md:text-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                      {villa.totalValue}
+                    </span>
+                  </div>
+                  <hr className="border-[#13133F]/20" />
+                </div>
+
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
       </div>
     </section>
   );
