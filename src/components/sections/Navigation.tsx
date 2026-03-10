@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface NavigationProps {
@@ -7,6 +7,7 @@ interface NavigationProps {
 
 export default function Navigation({ onNavigate }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
   
   const navItems = [
     { label: 'STORY', section: 'story' },
@@ -18,8 +19,30 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     { label: 'CONTACT', section: 'contact' }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'story', 'villas', 'amenities', 'location', 'lifestyle', 'gallery', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleNavClick = (section: string) => {
     onNavigate(section);
+    setActiveSection(section);
     setIsMenuOpen(false);
   };
 
@@ -34,7 +57,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
           <img 
             src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
             alt="The Viceroy Estate" 
-            className="h-16 w-16 md:h-20 md:w-20"
+            className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28"
           />
         </button>
 
@@ -44,15 +67,18 @@ export default function Navigation({ onNavigate }: NavigationProps) {
             <button
               key={item.section}
               onClick={() => handleNavClick(item.section)}
-              className="text-white text-sm font-medium tracking-wider hover:text-white/70 transition-colors"
+              className="relative text-white text-sm font-medium tracking-wider hover:text-white/70 transition-colors py-2"
             >
               {item.label}
+              {activeSection === item.section && (
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full"></span>
+              )}
             </button>
           ))}
         </div>
 
         {/* Spacer for balance on desktop */}
-        <div className="hidden lg:block w-16 md:w-20"></div>
+        <div className="hidden lg:block w-20 md:w-24 lg:w-28"></div>
 
         {/* Mobile Menu Button */}
         <button
@@ -71,9 +97,12 @@ export default function Navigation({ onNavigate }: NavigationProps) {
               <button
                 key={item.section}
                 onClick={() => handleNavClick(item.section)}
-                className="text-white text-sm font-medium tracking-wider hover:text-white/70 transition-colors text-left"
+                className="relative text-white text-sm font-medium tracking-wider hover:text-white/70 transition-colors text-left py-2"
               >
                 {item.label}
+                {activeSection === item.section && (
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full"></span>
+                )}
               </button>
             ))}
           </div>
