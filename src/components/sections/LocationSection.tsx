@@ -136,8 +136,8 @@ export default function LocationSection() {
                         <div className={`flex items-center gap-6 lg:gap-8 xl:gap-12 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
                           
                           {/* Text Content */}
-                          <div className={`flex flex-col justify-center ${isLeft ? 'text-right' : 'text-left'}`}>
-                            <h3 className="text-3xl lg:text-4xl xl:text-5xl text-[#F4F1EB] mb-3 lg:mb-4 whitespace-nowrap" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
+                          <div className={`flex flex-col justify-center max-w-[200px] lg:max-w-[240px] xl:max-w-[280px] ${isLeft ? 'text-right' : 'text-left'}`}>
+                            <h3 className="text-3xl lg:text-4xl xl:text-5xl text-[#F4F1EB] mb-3 lg:mb-4 break-words" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 300 }}>
                               {item.title}
                             </h3>
                             {item.drive && (
