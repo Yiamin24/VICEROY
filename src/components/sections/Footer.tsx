@@ -41,20 +41,29 @@ export default function Footer() {
           <div className="md:col-span-4 flex flex-col items-center md:items-end gap-4">
             <div className="flex gap-3">
               <a 
-                href="#" 
+                href="https://www.instagram.com/viceroyestate/?igsh=ZGdjZmFvZHU2OGJ0#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+                aria-label="Instagram"
               >
                 <Instagram className="h-4 w-4 text-white" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/@TheViceroyEstate"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+                aria-label="YouTube"
               >
                 <Youtube className="h-4 w-4 text-white" />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/company/viceroy-estate/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-4 w-4 text-white" />
               </a>
