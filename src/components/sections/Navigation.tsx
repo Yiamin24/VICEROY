@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Image } from '@/components/ui/image';
 
 interface NavigationProps {
   onNavigate: (section: string) => void;
@@ -54,11 +55,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
           onClick={() => onNavigate('hero')}
           className="hover:opacity-80 transition-opacity flex-shrink-0"
         >
-          <img 
-            src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" 
-            alt="The Viceroy Estate" 
-            className="h-24 w-24 md:h-32 md:w-32 lg:h-[160px] lg:w-[160px]"
-          />
+          <Image src="https://static.wixstatic.com/shapes/cef78c_dcd23525792f4d138743a97f3592dd34.svg" alt="The Viceroy Estate" className="h-24 w-24 md:h-32 md:w-32 lg:h-[160px] lg:w-[160px]" />
         </button>
 
         {/* Desktop Navigation - Shifted Right & Centered Vertically */}
