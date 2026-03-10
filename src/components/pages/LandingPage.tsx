@@ -6,6 +6,7 @@ import { Villas, Amenities } from '@/entities';
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import StorySection from '@/components/sections/StorySection';
+import LuxurySection from '@/components/sections/LuxurySection';
 import VillasSection from '@/components/sections/VillasSection';
 import AmenitiesSection from '@/components/sections/AmenitiesSection';
 import LocationSection from '@/components/sections/LocationSection';
@@ -47,6 +48,7 @@ export default function LandingPage() {
       <Navigation onNavigate={scrollToSection} />
       <HeroSection />
       <StorySection />
+      <LuxurySection />
       <VillasSection villas={villas} isLoading={isLoading} />
       <AmenitiesSection amenities={amenities} isLoading={isLoading} />
       <LocationSection />
