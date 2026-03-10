@@ -9,25 +9,25 @@ export default function LuxurySection() {
     offset: ["start end", "end start"],
   });
 
-  // Smooth subtle parallax
-  const butterflyY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  // butterfly parallax
+  const butterflyY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#E9E3DC] py-32 md:py-40 overflow-hidden"
+      className="relative w-full bg-[#E9E3DC] py-40 overflow-hidden"
     >
-      <div className="relative px-8 md:px-16 lg:px-24">
+      <div className="relative w-full px-6 md:px-12 lg:px-20">
 
-        {/* Text Block */}
+        {/* Huge Luxury Typography */}
         <h2
           className="text-[#13133F]"
           style={{
             fontFamily: '"Cormorant Garamond", serif',
             fontWeight: 300,
-            letterSpacing: "-1.5px",
-            lineHeight: 1.05,
-            fontSize: "clamp(4rem, 8vw, 9rem)"
+            lineHeight: 1.02,
+            letterSpacing: "-2px",
+            fontSize: "clamp(5rem, 10vw, 13rem)",
           }}
         >
           Luxury living in the
@@ -38,38 +38,14 @@ export default function LuxurySection() {
         {/* Butterfly */}
         <motion.div
           style={{ y: butterflyY }}
-          className="absolute 
-          right-[6%] 
-          top-[8%] 
-          md:right-[8%] 
-          md:top-[10%]"
+          className="absolute right-[5%] top-[6%]"
         >
           <img
             src="https://static.wixstatic.com/media/cef78c_05a9be484db24967b6ac3354e2f89a31~mv2.png"
             alt="Butterfly"
-            className="w-16 md:w-24 lg:w-28 xl:w-32 opacity-90"
+            className="w-20 md:w-28 lg:w-32 xl:w-36 opacity-90"
           />
         </motion.div>
-
-        {/* Scroll Button */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute bottom-[-60px] right-[6%] w-12 h-12 bg-black rounded-full flex items-center justify-center"
-        >
-          <svg
-            className="w-5 h-5 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </button>
 
       </div>
     </section>
