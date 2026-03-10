@@ -116,7 +116,7 @@ const ScrollExpandMedia = ({
 
   const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
   const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
-  const textOpacity = 1 - scrollProgress * 1.5; // Fade out text as video expands
+  const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
 
   return (
     <div ref={sectionRef} className="transition-colors duration-700 ease-in-out overflow-x-hidden">
@@ -185,23 +185,26 @@ const ScrollExpandMedia = ({
                 )}
               </div>
 
-              {/* Text Overlay */}
+              {/* Animated Split Text Overlay */}
               {(title || subtitle) && (
-                <motion.div
-                  className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none"
-                  style={{ opacity: textOpacity }}
-                >
+                <div className="flex items-center justify-center text-center gap-4 w-full relative z-10 transition-none flex-col">
                   {title && (
-                    <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-heading font-light tracking-wider mb-2">
+                    <motion.h1
+                      className="text-3xl md:text-4xl lg:text-5xl font-heading font-light text-white transition-none"
+                      style={{ transform: `translateX(-${textTranslateX}vw)` }}
+                    >
                       {title}
-                    </h1>
+                    </motion.h1>
                   )}
                   {subtitle && (
-                    <h2 className="text-white text-4xl md:text-5xl lg:text-7xl font-heading font-light tracking-wide">
+                    <motion.h2
+                      className="text-4xl md:text-6xl lg:text-8xl font-heading font-light text-center text-white transition-none"
+                      style={{ transform: `translateX(${textTranslateX}vw)` }}
+                    >
                       {subtitle}
-                    </h2>
+                    </motion.h2>
                   )}
-                </motion.div>
+                </div>
               )}
             </div>
 
