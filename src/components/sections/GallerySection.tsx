@@ -58,25 +58,21 @@ export default function GallerySection() {
           </div>
         </FadeIn>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {galleryImages.map((src, idx) => (
-            <FadeIn key={idx} delay={idx * 0.05}>
-              <div className="aspect-square overflow-hidden rounded-lg bg-[#13133F]/5 group">
-                <ImagePlayer
-                  images={[src]}
-                  interval={3000}
-                  renderImage={(imageSrc) => (
-                    <img
-                      src={imageSrc}
-                      alt={`Gallery ${idx + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  )}
+        <FadeIn delay={0.2}>
+          <div className="flex items-center justify-center p-4 md:p-12">
+            <ImagePlayer
+              images={galleryImages}
+              interval={3000}
+              renderImage={(src) => (
+                <img
+                  src={src}
+                  alt="The Viceroy Estate Gallery"
+                  className="w-full h-auto max-h-[70vh] max-w-4xl object-cover inline-block align-middle rounded-lg shadow-2xl"
                 />
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+              )}
+            />
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
