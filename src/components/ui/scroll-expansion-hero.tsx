@@ -190,16 +190,26 @@ const ScrollExpandMedia = ({
                 <div className="flex items-center justify-center text-center gap-4 w-full relative z-10 transition-none flex-col">
                   {title && (
                     <motion.h1
-                      className="text-3xl md:text-4xl lg:text-5xl font-heading font-light text-white transition-none"
-                      style={{ transform: `translateX(-${textTranslateX}vw)` }}
+                      className="text-3xl md:text-4xl lg:text-5xl font-light text-white transition-none"
+                      style={{ 
+                        transform: `translateX(-${textTranslateX}vw)`,
+                        fontFamily: '"Cormorant Garamond", serif',
+                        fontWeight: 300,
+                        letterSpacing: '-1px'
+                      }}
                     >
                       {title}
                     </motion.h1>
                   )}
                   {subtitle && (
                     <motion.h2
-                      className="text-4xl md:text-6xl lg:text-8xl font-heading font-light text-center text-white transition-none"
-                      style={{ transform: `translateX(${textTranslateX}vw)` }}
+                      className="text-4xl md:text-6xl lg:text-8xl font-light text-center text-white transition-none"
+                      style={{ 
+                        transform: `translateX(${textTranslateX}vw)`,
+                        fontFamily: '"Cormorant Garamond", serif',
+                        fontWeight: 300,
+                        letterSpacing: '-2px'
+                      }}
                     >
                       {subtitle}
                     </motion.h2>
