@@ -38,7 +38,7 @@ export default function LuxurySection() {
 
           {/* Butterfly */}
           <motion.div
-            className="absolute top-0 -right-6 md:-right-10 lg:-right-16"
+            className="absolute top-0 right-6 md:right-10 lg:right-16"
             style={{ y: butterflyY }}
           >
             <img
@@ -78,7 +78,7 @@ export default function LuxurySection() {
 
           </div>
 
-          {/* Right */}
+          {/* Right Image */}
           <div className="lg:col-span-7">
             <div className="w-full aspect-[4/3] overflow-hidden">
               <img
