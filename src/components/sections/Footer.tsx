@@ -22,7 +22,7 @@ export default function Footer() {
 
           {/* Quick Links - Center */}
           <div className="md:col-span-5 flex flex-wrap justify-center gap-x-6 gap-y-2">
-            {['Home', 'Villas', 'Amenities', 'Location', 'Gallery', 'Contact'].map((link) => (
+            {['Story', 'Villas', 'Amenities', 'Location', 'Gallery', 'Contact'].map((link) => (
               <a 
                 key={link}
                 href={`#${link.toLowerCase()}`}
