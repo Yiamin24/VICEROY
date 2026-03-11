@@ -11,6 +11,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   const [activeSection, setActiveSection] = useState('hero');
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showBackground, setShowBackground] = useState(false);
   
   const navItems = [
     { label: 'STORY', section: 'story' },
@@ -24,6 +25,10 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      
+      // Show solid background after hero section (approximately after 100vh)
+      const heroHeight = window.innerHeight;
+      setShowBackground(currentScrollY > heroHeight * 0.8);
       
       // Show/hide navigation based on scroll direction
       if (currentScrollY < lastScrollY || currentScrollY < 100) {
@@ -63,9 +68,12 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${
-      isVisible ? 'translate-y-0' : '-translate-y-full'
-    }`}>
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-[10000] transition-all duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${showBackground ? 'bg-[#1A1A1A]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}
+      style={{ pointerEvents: 'auto', isolation: 'isolate' }}
+    >
       <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <button 
