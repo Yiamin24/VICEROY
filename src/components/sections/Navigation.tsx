@@ -27,19 +27,17 @@ export default function Navigation({ onNavigate }: NavigationProps) {
       
       // Show/hide navigation based on scroll direction
       if (currentScrollY < lastScrollY || currentScrollY < 100) {
-        // Scrolling up or near top
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past threshold
         setIsVisible(false);
-        setIsMenuOpen(false); // Close mobile menu when hiding
+        setIsMenuOpen(false);
       }
       
       setLastScrollY(currentScrollY);
 
       // Active section detection
-      const sections = ['hero', 'story', 'villas', 'amenities', 'location', 'gallery', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+      const sections = ['hero', 'story', 'luxury', 'villas', 'amenities', 'location', 'gallery', 'contact'];
+      const scrollPosition = window.scrollY + 300;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -53,6 +51,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
       }
     };
 
+    handleScroll(); // Call once on mount
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
