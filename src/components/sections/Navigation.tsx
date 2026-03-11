@@ -17,7 +17,6 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     { label: 'VILLAS', section: 'villas' },
     { label: 'AMENITIES', section: 'amenities' },
     { label: 'LOCATION', section: 'location' },
-    { label: 'LIFESTYLE', section: 'lifestyle' },
     { label: 'GALLERY', section: 'gallery' },
     { label: 'CONTACT', section: 'contact' }
   ];
@@ -39,7 +38,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
       setLastScrollY(currentScrollY);
 
       // Active section detection
-      const sections = ['hero', 'story', 'villas', 'amenities', 'location', 'lifestyle', 'gallery', 'contact'];
+      const sections = ['hero', 'story', 'villas', 'amenities', 'location', 'gallery', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
