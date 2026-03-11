@@ -63,12 +63,9 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-[10000] transition-transform duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}
-      style={{ pointerEvents: 'auto', isolation: 'isolate' }}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    }`}>
       <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <button 
