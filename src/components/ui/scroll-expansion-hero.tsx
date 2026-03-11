@@ -35,12 +35,6 @@ const ScrollExpandMedia = ({
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      // Don't capture events if clicking on navigation (top 200px)
-      const target = e.target as HTMLElement;
-      if (target.closest('nav') || (e.clientY < 200)) {
-        return;
-      }
-      
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
         setMediaFullyExpanded(false);
         e.preventDefault();
